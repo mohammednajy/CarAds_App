@@ -7,7 +7,7 @@ Mobile app like a car market place
 - **Full authentication flow** (using email & password)
 
 ## Folder Structure
-
+```
 lib
 │   ├── core
 │   │   ├── localization
@@ -27,6 +27,7 @@ lib
 │   │   │       └── widgets
 │   │   └── home
 │   └── main.dart
+```
 
 - **Data Layer:** Handles data retrieval and storage.
 - **Domain Layer:** Contains business logic and use cases.
