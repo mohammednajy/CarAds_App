@@ -8,23 +8,25 @@ Mobile app like a car market place
 
 ## Folder Structure
 
-lib/├── features/
-    │    ├── feature1
-    │        ├── data/
-    │        │   ├── models/
-    │        │   └── data sources/
-    │        ├── domain/
-    │        │   ├── provider/
-    │        │   └── repositories/
-    │        └── presentation/
-    │            ├── screens/
-    │            └── widgets/
-    │
-    ├── core/
-        ├── localization/
-        ├── router/
-        ├── utils/
-        └── theme/
+lib
+│   ├── core
+│   │   ├── localization
+│   │   ├── router
+│   │   ├── theme
+│   │   └── utils
+│   ├── features
+│   │   ├── auth
+│   │   │   ├── data
+│   │   │   │   ├── dats_source
+│   │   │   │   └── models
+│   │   │   ├── domain
+│   │   │   │   ├── providers
+│   │   │   │   └── repository
+│   │   │   └── presentation
+│   │   │       ├── screens
+│   │   │       └── widgets
+│   │   └── home
+│   └── main.dart
 
 - **Data Layer:** Handles data retrieval and storage.
 - **Domain Layer:** Contains business logic and use cases.
