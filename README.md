@@ -3,6 +3,8 @@
 Mobile app like a car market place
 
 ## Features
+- **Dark and light theme**
+- **Arabic and English Language**
 - **Simple onboarding page**
 - **Full authentication flow** (using email & password)
 
