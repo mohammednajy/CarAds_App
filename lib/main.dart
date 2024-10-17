@@ -3,6 +3,7 @@ import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/theme/dark_theme.dart';
 import 'package:car_ads_app/core/theme/light_theme.dart';
 import 'package:car_ads_app/core/theme/theme_provider.dart';
+import 'package:car_ads_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,6 +29,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeManager = ref.watch(themeManagerProvider);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -35,7 +37,7 @@ class MyApp extends ConsumerWidget {
       darkTheme: darkTheme,
       themeMode: themeManager,
       theme: lightTheme,
-      home: const MyHomePage(),
+      home: const LoginScreen(),
     );
   }
 }
