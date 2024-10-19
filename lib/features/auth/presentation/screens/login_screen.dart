@@ -19,22 +19,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     ref.listen(loginProvider, (pre, next) {
-      next.when(
-        data: (data) {
+      next.when(data: (data) {
         Navigator.pop(context);
         print(data.toString());
-      }, 
-      error: (error, _) {
+      }, error: (error, _) {
         Navigator.pop(context);
         print(error);
-      }, 
-      loading: () {
+      }, loading: () {
         loadingWithText(context);
       });
     });
-
 
     return Scaffold(
       appBar: AppBar(
@@ -93,3 +88,6 @@ loadingWithText(BuildContext context, {String? text}) {
             ),
           ));
 }
+
+
+
