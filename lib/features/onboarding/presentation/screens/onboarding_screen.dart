@@ -1,5 +1,4 @@
-import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
-import 'package:car_ads_app/core/localization/locale_keys.g.dart';
+import '../../../../core/localization/locale_keys.g.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

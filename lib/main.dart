@@ -1,5 +1,5 @@
-import 'package:car_ads_app/carAdd.dart';
-import 'package:car_ads_app/core/localization/codegen_loader.g.dart';
+import 'carAdd.dart';
+import 'core/localization/codegen_loader.g.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
