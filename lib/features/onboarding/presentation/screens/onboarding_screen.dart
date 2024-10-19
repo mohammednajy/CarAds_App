@@ -1,3 +1,4 @@
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -12,9 +13,7 @@ class OnBoardingScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(LocaleKeys.hello.tr()),
       ),
-      body: const Center(
-        child: Text('OnBoardingScreen'),
-      ),
+      body: const Center(child: Text('onboarding screen')),
     );
   }
 }
