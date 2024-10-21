@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978419796746",
+    "project_id": "carads-app",
+    "storage_bucket": "carads-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978419796746:android:f1681fca6a25955a05c8f3",
+        "android_client_info": {
+          "package_name": "com.example.car_ads_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Ny31mwiQWWmjKxrkVoo3kmsD3QbORo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
