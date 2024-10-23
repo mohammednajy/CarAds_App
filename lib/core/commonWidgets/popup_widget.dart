@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension PopupWidget on BuildContext {
-  void showSnackbar(String message) => ScaffoldMessenger.of(this).showSnackBar(
+  void showSnackBar(String message) => ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
           content: Text(message),
         ),
