@@ -1,3 +1,4 @@
+import 'package:car_ads_app/core/commonWidgets/custom_appbar.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,15 +12,15 @@ class OnBoardingScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(LocaleKeys.hello.tr()),
+      appBar: CustomAppBar(
+        title: LocaleKeys.hello.tr(),
       ),
       body: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomButtonWidget(
-                    title: 'Send Request',
-                    onPressed: () async {
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: CustomButtonWidget(
+          title: 'Send Request',
+          onPressed: () async {
             try {
               final credential =
                   await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -36,9 +37,9 @@ class OnBoardingScreen extends ConsumerWidget {
             } catch (e) {
               print(e);
             }
-                    },
-                  ),
-          )),
+          },
+        ),
+      )),
     );
   }
 }
