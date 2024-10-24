@@ -1,4 +1,5 @@
-import 'package:car_ads_app/core/commonWidgets/CustomSvg.dart';
+import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
+import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonWidget extends StatelessWidget {
@@ -43,7 +44,9 @@ class CustomButtonWidget extends StatelessWidget {
             )
           : showIcon
               ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppPadding.paddingHorizontal
+                  ),
                   child: Row(
                     children: [
                       CustomSvgAssets(

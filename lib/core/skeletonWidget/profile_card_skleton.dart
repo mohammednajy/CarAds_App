@@ -10,7 +10,7 @@ class ProfileCardSkeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return ListTile(
-      tileColor: ColorManager.white,
+      tileColor: ColorManager.primary,
       contentPadding: const EdgeInsets.all(10),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -37,7 +37,7 @@ class ProfileCardSkeleton extends StatelessWidget {
       trailing: const MainContainer(
           height: 30,
           width: 30,
-          color: ColorManager.backGroundSecondary,
+          color: ColorManager.backGroundColor,
           child: Skeleton()),
     );
   }

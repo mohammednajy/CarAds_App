@@ -1,4 +1,7 @@
+// Try Card
+
 import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
+import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
 
 class MainContainer extends StatelessWidget {
@@ -39,7 +42,7 @@ class MainContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontal),
       alignment: alignment,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(AppSize.borderRadius),
         color: color,
         boxShadow: [
           BoxShadow(

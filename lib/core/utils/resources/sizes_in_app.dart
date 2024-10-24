@@ -1,8 +1,10 @@
 
 
-class AppSizes{
+class AppPadding{
   static const double paddingVertical = 20;
   static const double paddingHorizontal = 20;
+  static const double paddingVerticalTextField = 18;
+  static const double paddingHorizontalTextField = 16;
   static const double paddingContainer = 16;
 }
 
@@ -16,6 +18,7 @@ class AppMargin {
 }
 
 class AppSize {
+  static const double borderRadius = 8;
   static const double s1_5 = 1.5;
   static const double s4 = 4.0;
   static const double s5 = 5.0;

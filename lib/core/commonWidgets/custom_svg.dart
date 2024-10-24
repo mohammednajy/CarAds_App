@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomSvgAssets extends StatelessWidget {
   final String? path;
-  final Color? color;
+  final ColorFilter? colorFilter;
   final BoxFit fit;
   final double? width;
   final double? height;
@@ -11,7 +11,7 @@ class CustomSvgAssets extends StatelessWidget {
   const CustomSvgAssets({
     super.key,
     this.path,
-    this.color,
+    this.colorFilter,
     this.fit = BoxFit.scaleDown,
     this.width,
     this.height,
@@ -22,7 +22,7 @@ class CustomSvgAssets extends StatelessWidget {
     return SvgPicture.asset(
       path!,
       fit: BoxFit.scaleDown,
-      color: color,
+      colorFilter: colorFilter,
       height: height,
       width: width,
     );

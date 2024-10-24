@@ -53,9 +53,10 @@ class CustomTextField extends StatelessWidget {
       //enableInteractiveSelection: true,
       maxLines: maxLines,
       minLines: minLines,
-
       style: const TextStyle(
-          color: ColorManager.primaryTextColor, fontSize: FontSize.s14),
+        color: ColorManager.primaryTextColor,
+        fontSize: FontSize.s14,
+      ),
       onChanged: onChange as Function(String?)?,
       //   onSaved: onSaved as Function(String?)?,
       controller: controller,
@@ -63,45 +64,49 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       autovalidateMode: AutovalidateMode.disabled,
       obscureText: obscureText,
-      decoration: InputDecoration(
-        hintStyle: const TextStyle(
-          color: ColorManager.secondaryTextColor,
-          fontSize: FontSize.s14,
-        ),
-        filled: true,
-        fillColor: ColorManager.backgroundInputFiled,
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.transparent)),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(
-              color: ColorManager.borderColor,
-            )),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
-            color: Colors.red,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
-            color: ColorManager.borderColor,
-            width: 1,
-          ),
-        ),
-        suffixIcon: suffixIcon,
-        suffix: suffix,
-        prefixIcon: prefixIcon,
-        hintText: hintText,
-        // hintStyle: const TextStyle(
-        //   color: ColorManager.secondaryTextColor,
-        //   fontSize: FontSize.s14,
-        // ),
-      ),
+      // decoration: InputDecoration(
+      //   hintStyle: const TextStyle(
+      //     color: ColorManager.secondTextColor,
+      //     fontSize: FontSize.s14,
+      //   ),
+      //   filled: true,
+      //   fillColor: ColorManager.backGroundColor,
+      //   contentPadding: const EdgeInsets.symmetric(
+      //     vertical: AppPadding.paddingVerticalTextField,
+      //     horizontal: AppPadding.paddingHorizontalTextField,
+      //   ),
+      //   border: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(8),
+      //     borderSide: const BorderSide(color: Colors.transparent),
+      //   ),
+      //   enabledBorder: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(8),
+      //     borderSide: const BorderSide(
+      //        color: ColorManager.borderColor,
+      //     ),
+      //   ),
+      //   errorBorder: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(8),
+      //     borderSide: const BorderSide(
+      //       color: Colors.red,
+      //     ),
+      //   ),
+      //   focusedBorder: OutlineInputBorder(
+      //     borderRadius: BorderRadius.circular(8),
+      //     borderSide: const BorderSide(
+      //       color: ColorManager.borderColor,
+      //       width: 1,
+      //     ),
+      //   ),
+      //   suffixIcon: suffixIcon,
+      //   suffix: suffix,
+      //   prefixIcon: prefixIcon,
+      //   hintText: hintText,
+      //   // hintStyle: const TextStyle(
+      //   //   color: ColorManager.secondaryTextColor,
+      //   //   fontSize: FontSize.s14,
+      //   // ),
+      // ),
       //autofocus: true ,
     );
   }

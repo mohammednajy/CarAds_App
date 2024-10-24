@@ -31,7 +31,7 @@ class UtilsConfig {
               status == true
                   ? Icons.check_circle_outline
                   : Icons.dangerous_outlined,
-              color: ColorManager.borderSnackBarFalse,
+              color: ColorManager.borderColor,
             ),
             Expanded(
               child: Text(
@@ -50,14 +50,14 @@ class UtilsConfig {
           borderRadius: BorderRadius.circular(2),
           borderSide: BorderSide(
             color: status
-                ? ColorManager.borderSnackBarTrue
-                : ColorManager.borderSnackBarFalse,
+                ? ColorManager.borderColor
+                : ColorManager.secondTextColor,
           ),
         ),
         elevation: 0,
         backgroundColor: status
-            ? ColorManager.backGroundSnackBarTrue
-            : ColorManager.backGroundSnackBarFalse,
+            ? ColorManager.borderColor
+            : ColorManager.secondTextColor,
       ),
     );
   }
@@ -95,7 +95,7 @@ class UtilsConfig {
         ElevatedButton(
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40),
-              backgroundColor: ColorManager.whiteText,
+              backgroundColor: ColorManager.secondTextColor,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(
                   color: ColorManager.borderColor,
@@ -116,7 +116,7 @@ class UtilsConfig {
             //  bank.removeItem(index);
           },
           style: ElevatedButton.styleFrom(
-              backgroundColor: ColorManager.whiteText,
+              backgroundColor: ColorManager.secondTextColor,
               padding: const EdgeInsets.symmetric(horizontal: 40),
               shape: RoundedRectangleBorder(
                 side: const BorderSide(
