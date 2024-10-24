@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class StyleManger {
   static TextStyle headline1({
     Color color = ColorManager.primaryTextColor,
-    double fontSize = FontSize.s26,
+    double fontSize = FontSize.s28,
   }) =>
       TextStyle(
         fontWeight: FontWeight.w700,
@@ -54,7 +54,7 @@ class StyleManger {
         color: color,
       );
   static TextStyle bodyText2({
-    Color color = ColorManager.secondaryTextColor,
+    Color color = ColorManager.secondTextColor,
     double fontSize = FontSize.s14,
   }) =>
       TextStyle(
@@ -64,8 +64,8 @@ class StyleManger {
       );
 
   static TextStyle headLineBar({
-    Color color = ColorManager.black,
-    double fontSize = FontSize.s26,
+    Color color = ColorManager.primaryTextColor,
+    double fontSize = FontSize.s28,
   }) =>
       TextStyle(
           fontFamily: "Bebas",

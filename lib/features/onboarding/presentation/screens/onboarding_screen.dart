@@ -1,3 +1,4 @@
+import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -14,27 +15,30 @@ class OnBoardingScreen extends ConsumerWidget {
         title: Text(LocaleKeys.hello.tr()),
       ),
       body: Center(
-          child: ElevatedButton(
-        child: const Text('data'),
-        onPressed: () async {
-          try {
-            final credential =
-                await FirebaseAuth.instance.createUserWithEmailAndPassword(
-              email: 'ahed@gmail.com',
-              password: 'password',
-            );
-            print(credential.user);
-          } on FirebaseAuthException catch (e) {
-            if (e.code == 'weak-password') {
-              print('The password provided is too weak.');
-            } else if (e.code == 'email-already-in-use') {
-              print('The account already exists for that email.');
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: CustomButtonWidget(
+                    title: 'Send Request',
+                    onPressed: () async {
+            try {
+              final credential =
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                email: 'ahed@gmail.com',
+                password: 'password',
+              );
+              print(credential.user);
+            } on FirebaseAuthException catch (e) {
+              if (e.code == 'weak-password') {
+                print('The password provided is too weak.');
+              } else if (e.code == 'email-already-in-use') {
+                print('The account already exists for that email.');
+              }
+            } catch (e) {
+              print(e);
             }
-          } catch (e) {
-            print(e);
-          }
-        },
-      )),
+                    },
+                  ),
+          )),
     );
   }
 }
