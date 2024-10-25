@@ -12,5 +12,6 @@ class ColorManager {
   static const Color white = Color(0xFFFFFFFF);
   static const Color successColor = Color(0xFF45BB6F);
   static const Color warningColor = Color(0xFF493000F);
+  static const Color dragHandColor = Color(0xFFAAABAE);
 
 }
