@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
+import 'package:car_ads_app/core/utils/extensions/text_extension.dart';
 import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class BottomSheetWidget extends StatelessWidget {
             children: [
               Text(
                 address,
-                style: StyleManger.headline3(),
+                style: context.titleMedium,
               ),
               IconButton(
                 onPressed: () {
@@ -52,7 +53,7 @@ class BottomSheetWidget extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.close,
-                  color: Colors.black,
+                  color: ColorManager.black,
                 ),
               )
             ],
@@ -60,6 +61,7 @@ class BottomSheetWidget extends StatelessWidget {
           24.addVerticalSpace,
           Text(
             bodyText,
+            style: context.bodyMedium,
           ),
           // Spacer(),
           32.addVerticalSpace,
