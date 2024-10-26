@@ -12,7 +12,7 @@ class CustomButtonWidget extends StatelessWidget {
     this.showIcon = false,
     this.fontSize,
     this.fontWeight,
-    // this.style,
+    this.style,
     this.icon,
     this.loadingColor = Colors.white,
   });
@@ -26,13 +26,13 @@ class CustomButtonWidget extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
 
-  // final ButtonStyle? style;
+  final ButtonStyle? style;
   final String? icon;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      // style: Theme.of(context).elevatedButtonTheme.style,
+      style: style,
       onPressed: isLoading ? () {} : onPressed,
       child: isLoading == true
           ? Center(
@@ -45,8 +45,7 @@ class CustomButtonWidget extends StatelessWidget {
           : showIcon
               ? Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: AppPadding.paddingHorizontal
-                  ),
+                      horizontal: AppPadding.paddingHorizontal),
                   child: Row(
                     children: [
                       CustomSvgAssets(
