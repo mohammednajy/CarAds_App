@@ -64,49 +64,12 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       autovalidateMode: AutovalidateMode.disabled,
       obscureText: obscureText,
-      // decoration: InputDecoration(
-      //   hintStyle: const TextStyle(
-      //     color: ColorManager.secondTextColor,
-      //     fontSize: FontSize.s14,
-      //   ),
-      //   filled: true,
-      //   fillColor: ColorManager.backGroundColor,
-      //   contentPadding: const EdgeInsets.symmetric(
-      //     vertical: AppPadding.paddingVerticalTextField,
-      //     horizontal: AppPadding.paddingHorizontalTextField,
-      //   ),
-      //   border: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(8),
-      //     borderSide: const BorderSide(color: Colors.transparent),
-      //   ),
-      //   enabledBorder: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(8),
-      //     borderSide: const BorderSide(
-      //        color: ColorManager.borderColor,
-      //     ),
-      //   ),
-      //   errorBorder: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(8),
-      //     borderSide: const BorderSide(
-      //       color: Colors.red,
-      //     ),
-      //   ),
-      //   focusedBorder: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(8),
-      //     borderSide: const BorderSide(
-      //       color: ColorManager.borderColor,
-      //       width: 1,
-      //     ),
-      //   ),
-      //   suffixIcon: suffixIcon,
-      //   suffix: suffix,
-      //   prefixIcon: prefixIcon,
-      //   hintText: hintText,
-      //   // hintStyle: const TextStyle(
-      //   //   color: ColorManager.secondaryTextColor,
-      //   //   fontSize: FontSize.s14,
-      //   // ),
-      // ),
+      decoration: InputDecoration(
+        suffixIcon: suffixIcon,
+        suffix: suffix,
+        prefixIcon: prefixIcon,
+        hintText: hintText,
+      ),
       //autofocus: true ,
     );
   }
