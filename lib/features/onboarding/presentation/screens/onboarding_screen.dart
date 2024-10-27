@@ -26,7 +26,7 @@ class OnBoardingScreen extends ConsumerWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-               CustomTextField(
+              CustomTextField(
                 keyboardType: TextInputType.visiblePassword,
                 hintText: LocaleKeys.ahed.tr(),
                 // obscureText: true,
@@ -41,13 +41,12 @@ class OnBoardingScreen extends ConsumerWidget {
                           borderRadius: BorderRadius.circular(8)),
                       context: context,
                       builder: (context) => BottomSheetWidget(
-                            address: 'clearYourHistory',
-                            bodyText:
-                                'Are you sure you want to clear your history?\nThis action cannot be undone, so proceed with caution.',
-                            buttonText: 'YES , CLEAR IT ',
-                            secondButtonText: 'NO , I CHANGED MY MIND !',
+                            title: 'clearYourHistory',
+                            primaryButtonText: 'YES , CLEAR IT ',
+                            secondaryButtonText: 'NO , I CHANGED MY MIND !',
                             onPressedButton: () {},
                             onPressedTextButton: () {},
+                            body: Text('data'),
                           ));
 
                   // try {

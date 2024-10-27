@@ -7,19 +7,19 @@ import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetWidget extends StatelessWidget {
-  final String address;
-  final String bodyText;
-  final String buttonText;
-  final String secondButtonText;
+  final String title;
+  final Widget body;
+  final String primaryButtonText;
+  final String secondaryButtonText;
   final void Function() onPressedButton;
   final void Function() onPressedTextButton;
 
   const BottomSheetWidget({
     super.key,
-    required this.address,
-    required this.bodyText,
-    required this.buttonText,
-    required this.secondButtonText,
+    required this.title,
+    required this.body,
+    required this.primaryButtonText,
+    required this.secondaryButtonText,
     required this.onPressedButton,
     required this.onPressedTextButton,
   });
@@ -44,7 +44,7 @@ class BottomSheetWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                address,
+                title,
                 style: context.titleMedium,
               ),
               IconButton(
@@ -59,14 +59,11 @@ class BottomSheetWidget extends StatelessWidget {
             ],
           ),
           24.addVerticalSpace,
-          Text(
-            bodyText,
-            style: context.bodyMedium,
-          ),
+          body,
           // Spacer(),
           32.addVerticalSpace,
           CustomButtonWidget(
-            title: buttonText,
+            title: primaryButtonText,
             onPressed: onPressedButton,
             style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
                   backgroundColor:
@@ -76,7 +73,7 @@ class BottomSheetWidget extends StatelessWidget {
           16.addVerticalSpace,
           TextButton(
             onPressed: onPressedTextButton,
-            child: Text(secondButtonText),
+            child: Text(secondaryButtonText),
           ),
           16.addVerticalSpace,
         ],
