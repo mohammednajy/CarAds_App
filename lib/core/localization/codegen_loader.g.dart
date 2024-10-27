@@ -18,13 +18,15 @@ class CodegenLoader extends AssetLoader{
   "hello": "Hello!",
   "name": "mohammed naji",
   "change_lang": "Change language",
-  "theme": "app theme"
+  "theme": "app theme",
+  "ahed": "ahed"
 };
 static const Map<String,dynamic> ar = {
   "hello": "مرحبا",
   "name": "محمد ناجي",
   "change_lang": "تغيير اللغة",
-  "theme": "ثيم التطبيق"
+  "theme": "ثيم التطبيق",
+  "ahed": "عاهد"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "ar": ar};
 }

@@ -4,7 +4,6 @@ import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
 import 'package:car_ads_app/core/commonWidgets/main_container.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
-import 'package:car_ads_app/core/utils/resources/strings_in_app.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,9 +26,9 @@ class OnBoardingScreen extends ConsumerWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const CustomTextField(
+               CustomTextField(
                 keyboardType: TextInputType.visiblePassword,
-                hintText: 'Password',
+                hintText: LocaleKeys.ahed.tr(),
                 // obscureText: true,
               ),
               const SizedBox(height: 30),
@@ -42,7 +41,7 @@ class OnBoardingScreen extends ConsumerWidget {
                           borderRadius: BorderRadius.circular(8)),
                       context: context,
                       builder: (context) => BottomSheetWidget(
-                            address: clearYourHistory.tr(),
+                            address: 'clearYourHistory',
                             bodyText:
                                 'Are you sure you want to clear your history?\nThis action cannot be undone, so proceed with caution.',
                             buttonText: 'YES , CLEAR IT ',
