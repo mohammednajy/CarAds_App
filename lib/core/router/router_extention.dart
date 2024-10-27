@@ -20,6 +20,11 @@ extension NavigationExtension on BuildContext {
     Navigator.pop(this, result);
   }
 
+  // Pop the current screen and return to the previous screen
+  void canGoBack<T extends Object?>() {
+    Navigator.canPop(this);
+  }
+
   // Navigate and remove all previous screens until a specific route is reached
   Future navigateAndRemoveUntil(String routeName, RoutePredicate predicate,
       {Object? arguments}) {

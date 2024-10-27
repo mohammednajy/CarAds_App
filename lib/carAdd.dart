@@ -1,3 +1,5 @@
+import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
+
 import 'core/router/router.dart';
 import 'core/router/routes_name.dart';
 import 'core/theme/dark_theme.dart';
@@ -14,15 +16,15 @@ class CarAdsApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeManager = ref.watch(themeManagerProvider);
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      darkTheme: darkTheme,
-      themeMode: themeManager,
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: RoutesName.onboarding,
-      theme: lightTheme,
-    );
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        darkTheme: darkTheme,
+        themeMode: themeManager,
+        onGenerateRoute: onGenerateRoute,
+        initialRoute: RoutesName.onboarding,
+        theme: lightTheme,
+        navigatorKey: ScreenUtil.navigatorKey);
   }
 }

@@ -16,6 +16,8 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.5.3
   firebase_auth: ^5.3.1
+  shimmer: ^3.0.0
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -26,9 +28,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/translations/
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+    - assets/images/
+    - assets/icons/
+
+
+  fonts:
+    - family: Avenir Arabic
+      fonts:
+        - asset: assets/fonts/Avenir Black.ttf
+          weight: 700
+        - asset: assets/fonts/Avenir Regular.ttf
+          weight: 400
