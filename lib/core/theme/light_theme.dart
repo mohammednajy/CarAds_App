@@ -112,48 +112,24 @@ final ThemeData lightTheme = ThemeData(
     //------------------------------- TextTheme -------------------------------
 
     textTheme: const TextTheme(
+      titleMedium: TextStyle(
+          fontSize: FontSize.s18,
+          color: ColorManager.primaryTextColor,
+          fontWeight: FontWeight.w900),
       bodySmall: TextStyle(
           fontSize: FontSize.s12,
-          color: ColorManager.primaryTextColor,
+          color: ColorManager.infoColor,
           fontWeight: FontWeight.w400),
       bodyMedium: TextStyle(
           fontSize: FontSize.s14,
           color: ColorManager.primaryTextColor,
           fontWeight: FontWeight.w400),
-      bodyLarge: TextStyle(
-          fontSize: FontSize.s18,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w400),
-      labelMedium: TextStyle(
-          fontSize: FontSize.s12,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w400),
-      labelLarge: TextStyle(
+      labelSmall: TextStyle(
           fontSize: FontSize.s14,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w500),
-      titleMedium: TextStyle(
-          fontSize: FontSize.s18,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w800),
-      titleLarge: TextStyle(
-          fontSize: FontSize.s22,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w400),
-      headlineSmall: TextStyle(
-          fontSize: FontSize.s24,
-          color: ColorManager.primaryTextColor,
+          color: ColorManager.secondTextColor,
           fontWeight: FontWeight.w400),
       headlineMedium: TextStyle(
           fontSize: FontSize.s28,
           color: ColorManager.primaryTextColor,
           fontWeight: FontWeight.w900),
-      headlineLarge: TextStyle(
-          fontSize: FontSize.s32,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w400),
-      displaySmall: TextStyle(
-          fontSize: FontSize.s36,
-          color: ColorManager.primaryTextColor,
-          fontWeight: FontWeight.w400),
     ));
