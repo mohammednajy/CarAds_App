@@ -2,7 +2,7 @@ import 'package:car_ads_app/core/commonWidgets/bottom_sheet_widget.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_appbar.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
-import 'package:car_ads_app/core/commonWidgets/main_container.dart';
+import 'package:car_ads_app/core/commonWidgets/main_card.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

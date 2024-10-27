@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
-import 'package:car_ads_app/core/commonWidgets/main_container.dart';
+import 'package:car_ads_app/core/commonWidgets/main_card.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
+import 'package:car_ads_app/core/utils/extensions/layout_extensions.dart';
 import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
 import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/utils/resources/icons_constant.dart';
@@ -31,11 +32,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: visible == true
             ? GestureDetector(
                 onTap: () => context.goBack(),
-                child: MainContainer(
+                child: MainCard(
                   top: 15,
                   bottom: 15,
-                  color: ColorManager.white,
-                  alignment: Alignment.center,
                   child: CustomSvgAssets(
                     path: AppIcons.back,
                   ),

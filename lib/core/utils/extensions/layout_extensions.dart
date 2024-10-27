@@ -7,4 +7,5 @@ extension LayoutExtensions on Widget {
       );
 
   Widget center() => Center(child: this);
+  Widget contains() => Container(color: Colors.red, child: this);
 }
