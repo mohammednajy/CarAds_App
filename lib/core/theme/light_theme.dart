@@ -11,7 +11,7 @@ final ThemeData lightTheme = ThemeData(
     fontFamily: FontConstants.fontFamily,
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSize.s8),
+        borderRadius: BorderRadius.circular(AppSize.borderRadius),
       ),
       buttonColor: ColorManager.primary,
     ),
@@ -29,7 +29,7 @@ final ThemeData lightTheme = ThemeData(
 
     appBarTheme: const AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle.dark,
-        toolbarHeight: AppSize.s70,
+        toolbarHeight: 70,
         elevation: 0,
         iconTheme: IconThemeData(
           size: FontSize.s28,
@@ -38,7 +38,7 @@ final ThemeData lightTheme = ThemeData(
         centerTitle: false,
         // titleSpacing: 30,
         actionsIconTheme: IconThemeData(
-          size: AppSize.s25,
+          size: 25,
           color: ColorManager.black,
         ),
         backgroundColor: Colors.transparent,
@@ -65,7 +65,7 @@ final ThemeData lightTheme = ThemeData(
           fontWeight: FontWeight.w800,
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s8),
+          borderRadius: BorderRadius.circular(AppSize.borderRadius),
         ),
         minimumSize: const Size(double.infinity, 48),
         maximumSize: const Size(double.infinity, 48),

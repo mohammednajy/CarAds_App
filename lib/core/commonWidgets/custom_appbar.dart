@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/main_container.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
+import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
 import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/utils/resources/icons_constant.dart';
 import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
@@ -13,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.iconAction,
     this.onTap,
-    this.visible = false,
+    this.visible = true,
   });
 
   final String title;
@@ -24,15 +25,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),
+      padding: AppPadding.paddingHorizontal.spaceHorizontal,
       child: AppBar(
-        leadingWidth: visible == true ? AppSize.s42 : 0,
+        leadingWidth: visible == true ? 42 : 0,
         leading: visible == true
             ? GestureDetector(
                 onTap: () => context.goBack(),
                 child: MainContainer(
-                  top: AppSize.s15,
-                  bottom: AppSize.s15,
+                  top: 15,
+                  bottom: 15,
                   color: ColorManager.white,
                   alignment: Alignment.center,
                   child: CustomSvgAssets(
@@ -50,5 +51,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(AppSize.s70);
+  Size get preferredSize => const Size.fromHeight(70);
 }
