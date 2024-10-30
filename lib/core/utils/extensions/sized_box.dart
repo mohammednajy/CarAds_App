@@ -18,8 +18,8 @@ class ScreenUtil {
 }
 
 extension FlutterSizes on num {
-  static const designWidth = 360;
-  static const designHeight = 800;
+  static const designWidth = 390;
+  static const designHeight = 844;
 
   SizedBox get addHorizontalSpace {
     return SizedBox(

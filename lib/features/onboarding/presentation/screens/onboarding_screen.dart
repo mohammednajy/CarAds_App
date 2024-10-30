@@ -1,76 +1,93 @@
 import 'package:car_ads_app/core/commonWidgets/bottom_sheet_widget.dart';
-import 'package:car_ads_app/core/commonWidgets/custom_appbar.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
-import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
-import 'package:car_ads_app/core/commonWidgets/main_card.dart';
-import 'package:car_ads_app/core/localization/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:car_ads_app/core/router/router_extention.dart';
+import 'package:car_ads_app/core/router/routes_name.dart';
+import 'package:car_ads_app/core/utils/extensions/layout_extensions.dart';
+import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
+import 'package:car_ads_app/core/utils/extensions/text_extension.dart';
+import 'package:car_ads_app/features/onboarding/data/models/onboarding_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingScreen extends ConsumerWidget {
+class OnBoardingScreen extends HookConsumerWidget {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final controller = usePageController();
+    final index = useState(0);
     return Scaffold(
-      appBar: CustomAppBar(
-        title: LocaleKeys.hello.tr(),
-      ),
-      body: Center(
-          child: MainCard(
-        left: 20,
-        right: 20,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomTextField(
-                keyboardType: TextInputType.visiblePassword,
-                hintText: LocaleKeys.ahed.tr(),
-                // obscureText: true,
+      body: SafeArea(
+        child: ListView(
+          padding: 20.spaceHorizontal,
+          children: [
+            80.addVerticalSpace,
+            SizedBox(
+              height: 200.height,
+              child: PageView.builder(
+                controller: controller,
+                itemBuilder: (context, index) =>
+                    Image.asset(onboardingData[index].imagePath),
+                itemCount: 3,
+                onPageChanged: (value) => index.value = value,
               ),
-              const SizedBox(height: 30),
-              CustomButtonWidget(
-                title: 'Send Request',
-                onPressed: () async {
-                  showModalBottomSheet(
-                      useSafeArea: true,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      context: context,
-                      builder: (context) => BottomSheetWidget(
-                            title: 'clearYourHistory',
-                            primaryButtonText: 'YES , CLEAR IT ',
-                            secondaryButtonText: 'NO , I CHANGED MY MIND !',
-                            onPressedButton: () {},
-                            onPressedTextButton: () {},
-                            body: Text('data'),
-                          ));
-
-                  // try {
-                  //   final credential = await FirebaseAuth.instance
-                  //       .createUserWithEmailAndPassword(
-                  //     email: 'ahed@gmail.com',
-                  //     password: 'password',
-                  //   );
-                  //   print(credential.user);
-                  // } on FirebaseAuthException catch (e) {
-                  //   if (e.code == 'weak-password') {
-                  //     print('The password provided is too weak.');
-                  //   } else if (e.code == 'email-already-in-use') {
-                  //     print('The account already exists for that email.');
-                  //   }
-                  // } catch (e) {
-                  //   print(e);
-                  // }
+            ),
+            32.addVerticalSpace,
+            Text(
+              onboardingData[index.value].title,
+              textAlign: TextAlign.center,
+              style: context.titleMedium.copyWith(fontSize: 22),
+            ),
+            32.addVerticalSpace,
+            Text(
+              onboardingData[index.value].description,
+              textAlign: TextAlign.center,
+              style: context.bodyMedium,
+            ),
+            32.addVerticalSpace,
+            SmoothPageIndicator(
+                    controller: controller, // PageController
+                    count: 3,
+                    effect: const ExpandingDotsEffect(
+                        dotHeight: 9, dotWidth: 10), // your preferred effect
+                    onDotClicked: (index) {})
+                .center(),
+            40.addVerticalSpace,
+            index.value != 2
+                ? CustomButtonWidget(
+                    title: 'Next',
+                    onPressed: () {
+                      print(controller.page);
+                      controller.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    })
+                : Column(
+                    children: [
+                      CustomButtonWidget(
+                          title: 'Join Now As A User',
+                          onPressed: () {
+                            context.navigateAndReplace(RoutesName.login);
+                          }),
+                      16.addVerticalSpace,
+                      CustomButtonWidget(
+                          title: 'Join Now As A Showrooms',
+                          onPressed: () {
+                            //TODO: futuristic
+                            print('go to show rooms screen');
+                          })
+                    ],
+                  ),
+            TextButton(
+                onPressed: () {
+                  context.navigateAndReplace(RoutesName.login);
                 },
-              ),
-            ],
-          ),
+                child: const Text('Skip'))
+          ],
         ),
-      )),
+      ),
     );
   }
 }

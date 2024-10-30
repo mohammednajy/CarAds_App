@@ -19,10 +19,10 @@ final ThemeData lightTheme = ThemeData(
 
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-          foregroundColor: WidgetStateProperty.all(ColorManager.warningColor),
+          foregroundColor: WidgetStateProperty.all(ColorManager.primary),
           textStyle: WidgetStateProperty.all(const TextStyle(
             fontSize: FontSize.s16,
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w400,
           ))),
     ),
     //------------------------------AppBarTheme---------------------------------
