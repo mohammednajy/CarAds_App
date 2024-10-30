@@ -1,7 +1,12 @@
 {
-    "hello": "Hello!",
-    "name": "mohammed naji",
-    "change_lang": "Change language",
-    "theme": "app theme",
-    "ahed": "ahed"
+    "onboardingTitle1": "Welcome to CarAds App",
+    "onboardingTitle2": "Effortless Ads Management",
+    "onboardingTitle3": "Explore Your Options",
+    "onboardingDescription1": "CarAds is your ultimate destination for car showrooms and rental offices advertising. Whether you're a car showroom owner or looking to rent a vehicle, our platform has got you covered!",
+    "onboardingDescription2": "Are you a car showroom or rental office owner? Create your special account now! Easily manage and promote your ads within a few taps. Reach a broader audience, receive inquiries with CarAds",
+    "onboardingDescription3": "Discover a wide range of car advertisements tailored to your preferences. Browse through various car models, rental offers, and exclusive deals from local showrooms. With CarAds",
+    "next": "Next",
+    "skip": "Skip",
+    "joinAsUser": "Join Now As A User",
+    "joinAsShowrooms": "Join Now As A Showrooms"
 }
