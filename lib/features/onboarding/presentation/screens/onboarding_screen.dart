@@ -1,11 +1,10 @@
-import 'package:car_ads_app/core/commonWidgets/bottom_sheet_widget.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
+import 'package:car_ads_app/core/theme/theme_provider.dart';
 import 'package:car_ads_app/core/utils/extensions/layout_extensions.dart';
 import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
-import 'package:car_ads_app/core/utils/extensions/string_extension.dart';
 import 'package:car_ads_app/core/utils/extensions/text_extension.dart';
 import 'package:car_ads_app/features/onboarding/data/models/onboarding_model.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -51,13 +50,11 @@ class OnBoardingScreen extends HookConsumerWidget {
             ),
             32.addVerticalSpace,
             SmoothPageIndicator(
-                controller: controller, // PageController
-                count: 3,
-                effect: const ExpandingDotsEffect(
-                    dotHeight: 9, dotWidth: 10), // your preferred effect
-                onDotClicked: (index) {
-                  context.setLocale(Locale('ar'));
-                }).center(),
+              controller: controller, // PageController
+              count: 3,
+              effect: const ExpandingDotsEffect(
+                  dotHeight: 9, dotWidth: 10), // your preferred effect
+            ).center(),
             40.addVerticalSpace,
             index.value != 2
                 ? CustomButtonWidget(
