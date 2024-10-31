@@ -54,9 +54,9 @@ These are the main packages used in the app:
 If you add new text to json folder run these command two command:
 - This is for update codegen_loader.g.dart
 ```
-flutter pub run easy_localization:generate -S "assets/translations/" -O "lib/core/localization"
+flutter pub run easy_localization:generate -S "assets/translations/" -O "lib/core/config/localization"
 ```
 - This is for update locale.keys.g.dart
 ```
-flutter pub run easy_localization:generate -S "assets/translations/" -O "lib/core/localization" -o "locale_keys.g.dart" -f keys
+flutter pub run easy_localization:generate -S "assets/translations/" -O "lib/core/config/localization" -o "locale_keys.g.dart" -f keys
 ```
