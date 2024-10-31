@@ -1,9 +1,9 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
-import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
-import 'package:car_ads_app/core/utils/extensions/text_extension.dart';
-import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
-import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
+import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
+import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
+import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
+import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetWidget extends StatelessWidget {

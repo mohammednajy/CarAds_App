@@ -12,10 +12,10 @@ Mobile app like a car market place
 ```
 lib
 │   ├── core
-│   │   ├── localization
-│   │   ├── router
-│   │   ├── theme
-│   │   └── utils
+│   │   ├── commonWidgets
+│   │   ├── config
+│   │   └── router
+│   │   
 │   ├── features
 │   │   ├── auth
 │   │   │   ├── data
@@ -39,12 +39,13 @@ lib
 
 These are the main packages used in the app:
 
-- [Flutter Riverpod](https://pub.dev/packages/flutter_riverpod) for data caching, dependency injection, and more
+- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod) for data caching, dependency injection, and more
 - [easy localization](https://pub.dev/packages/easy_localization) for internationalizing and localization. 
-- [shimmer](https://pub.dev/packages/shimmer) for provide a visually engaging during loading screens. 
+- [skeletonizer](https://pub.dev/packages/skeletonizer) for provide a visually engaging during loading screens. 
 - [flutter_svg](https://pub.dev/packages/flutter_svg) for use Scalable Vector Graphics (SVG). 
-- [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
-- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod)
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks) to handling local state powerfully
+
+
 
 
 ## App Instructions

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:car_ads_app/core/localization/locale_keys.g.dart';
-import 'package:car_ads_app/core/utils/resources/images_constant.dart';
+import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
+import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
 
 class OnboardingModel {
   final String title;

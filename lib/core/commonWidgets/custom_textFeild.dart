@@ -1,5 +1,5 @@
-import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
-import 'package:car_ads_app/core/utils/resources/font_size.dart';
+import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
+import 'package:car_ads_app/core/config/utils/resources/font_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {

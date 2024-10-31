@@ -1,5 +1,5 @@
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
-import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
+import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonWidget extends StatelessWidget {

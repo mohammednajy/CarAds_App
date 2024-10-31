@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-extension FlutterSizes on num {
+extension AppSizes on num {
   static final Size mediaQueryData =
       MediaQuery.sizeOf(navigatorKey.currentState!.context);
   static final double screenDeviceWidth = mediaQueryData.width;

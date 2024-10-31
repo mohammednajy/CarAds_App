@@ -1,11 +1,9 @@
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/main_card.dart';
+import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
-import 'package:car_ads_app/core/utils/extensions/layout_extensions.dart';
-import 'package:car_ads_app/core/utils/extensions/sized_box.dart';
-import 'package:car_ads_app/core/utils/resources/colors_manger.dart';
-import 'package:car_ads_app/core/utils/resources/icons_constant.dart';
-import 'package:car_ads_app/core/utils/resources/sizes_in_app.dart';
+import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
+import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -32,11 +30,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: visible == true
             ? GestureDetector(
                 onTap: () => context.goBack(),
-                child: MainCard(
+                child: const MainCard(
                   top: 15,
                   bottom: 15,
                   child: CustomSvgAssets(
-                    path: AppIcons.back,
+                    path: IconsPath.back,
                   ),
                 ),
               )
