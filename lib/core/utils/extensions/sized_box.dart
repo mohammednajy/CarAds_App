@@ -1,23 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ScreenUtil {
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
-
-  static Size get mediaQueryData {
-    final context = navigatorKey.currentContext;
-    if (context == null) {
-      throw Exception("Navigator context is not available yet.");
-    }
-    return MediaQuery.sizeOf(context);
-  }
-
-  static double width(num value) => value * mediaQueryData.width / 100;
-
-  static double height(num value) => value * mediaQueryData.height / 100;
-}
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 extension FlutterSizes on num {
+  static final Size mediaQueryData =
+      MediaQuery.sizeOf(navigatorKey.currentState!.context);
+  static final double screenDeviceWidth = mediaQueryData.width;
+  static final double screenDeviceHeight = mediaQueryData.height;
   static const designWidth = 360;
   static const designHeight = 800;
 
@@ -29,7 +18,7 @@ extension FlutterSizes on num {
 
   SizedBox get addVerticalSpace {
     return SizedBox(
-      height: ScreenUtil.height(this) * (toDouble() / designHeight),
+      height: screenDeviceHeight * (toDouble() / designHeight),
     );
   }
 
@@ -38,11 +27,11 @@ extension FlutterSizes on num {
   }
 
   double get width {
-    return ScreenUtil.width(this) * (toDouble() / designWidth);
+    return screenDeviceWidth * (toDouble() / designWidth);
   }
 
   double get height {
-    return ScreenUtil.width(this) * (toDouble() / designHeight);
+    return screenDeviceHeight * (toDouble() / designHeight);
   }
 
   EdgeInsets get spaceAroundAll {
@@ -51,32 +40,32 @@ extension FlutterSizes on num {
 
   EdgeInsets get spaceHorizontal {
     return EdgeInsets.symmetric(
-        horizontal: ScreenUtil.width(this) * (toDouble() / designWidth));
+        horizontal: screenDeviceWidth * (toDouble() / designWidth));
   }
 
   EdgeInsets get spaceVertical {
     return EdgeInsets.symmetric(
-        vertical: ScreenUtil.height(this) * (toDouble() / designHeight));
+        vertical: screenDeviceHeight * (toDouble() / designHeight));
   }
 
   EdgeInsetsDirectional get spaceTop {
     return EdgeInsetsDirectional.only(
-        top: ScreenUtil.height(this) * (toDouble() / designHeight));
+        top: screenDeviceHeight * (toDouble() / designHeight));
   }
 
   EdgeInsetsDirectional get spaceBottom {
     return EdgeInsetsDirectional.only(
-        bottom: ScreenUtil.height(this) * (toDouble() / designHeight));
+        bottom: screenDeviceHeight * (toDouble() / designHeight));
   }
 
   EdgeInsetsDirectional get spaceStart {
     return EdgeInsetsDirectional.only(
-        start: ScreenUtil.width(this) * (toDouble() / designWidth));
+        start: screenDeviceWidth * (toDouble() / designWidth));
   }
 
   EdgeInsetsDirectional get spaceEnd {
     return EdgeInsetsDirectional.only(
-        end: ScreenUtil.width(this) * (toDouble() / designWidth));
+        end: screenDeviceWidth * (toDouble() / designWidth));
   }
 
   BorderRadius get circularRadius {

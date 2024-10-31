@@ -43,6 +43,9 @@ These are the main packages used in the app:
 - [easy localization](https://pub.dev/packages/easy_localization) for internationalizing and localization. 
 - [shimmer](https://pub.dev/packages/shimmer) for provide a visually engaging during loading screens. 
 - [flutter_svg](https://pub.dev/packages/flutter_svg) for use Scalable Vector Graphics (SVG). 
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
+- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod)
+
 
 ## App Instructions
 
