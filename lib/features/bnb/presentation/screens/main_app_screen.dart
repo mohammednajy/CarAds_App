@@ -11,35 +11,26 @@ class MainAppScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final index = useState(0);
+    final screenWidth = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       body: tabs[index.value].screen,
       bottomNavigationBar: Stack(
-        alignment: indicatorLocation(index.value),
+        alignment: alignments[index.value],
         children: [
           BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            items: tabs
-                .map(
-                  (e) => BottomNavigationBarItem(
-                      icon: SvgPicture.asset(
-                        e.tabIcon,
-                      ),
-                      label: e.tabTitle.tr(),
-                      activeIcon: SvgPicture.asset(
-                        e.activeIcon,
-                      )),
-                )
-                .toList(),
+            items: buildNavBarItems(),
             onTap: (value) {
               index.value = value;
             },
             currentIndex: index.value,
           ),
           Container(
-            margin: marginContainer(index.value, context),
+            margin: marginContainer(index.value, screenWidth),
             alignment: Alignment.center,
             height: 5,
-            width: MediaQuery.sizeOf(context).width / 6,
+            width: screenWidth / 6,
             color: ColorManager.primary,
           ),
         ],
@@ -47,23 +38,29 @@ class MainAppScreen extends HookWidget {
     );
   }
 
-  AlignmentGeometry indicatorLocation(int index) {
-    if (index == 0) {
-      return AlignmentDirectional.topStart;
-    } else if (index == 4) {
-      return AlignmentDirectional.topEnd;
-    } else {
-      return AlignmentDirectional.topCenter;
-    }
+  List<BottomNavigationBarItem> buildNavBarItems() {
+    return tabs
+        .map((e) => BottomNavigationBarItem(
+              icon: SvgPicture.asset(e.tabIcon),
+              label: e.tabTitle.tr(),
+              activeIcon: SvgPicture.asset(e.activeIcon),
+            ))
+        .toList();
   }
 
-  EdgeInsetsGeometry marginContainer(int index, BuildContext context) {
+  static const alignments = [
+    AlignmentDirectional.topStart,
+    AlignmentDirectional.topCenter,
+    AlignmentDirectional.topCenter,
+    AlignmentDirectional.topCenter,
+    AlignmentDirectional.topEnd,
+  ];
+
+  EdgeInsetsGeometry marginContainer(int index, double screenWidth) {
     if (index == 3) {
-      return EdgeInsetsDirectional.only(
-          start: MediaQuery.sizeOf(context).width / 2.5);
+      return EdgeInsetsDirectional.only(start: screenWidth / 2.5);
     } else if (index == 1) {
-      return EdgeInsetsDirectional.only(
-          end: MediaQuery.sizeOf(context).width / 2.5);
+      return EdgeInsetsDirectional.only(end: screenWidth / 2.5);
     }
     return const EdgeInsets.symmetric(horizontal: 5);
   }

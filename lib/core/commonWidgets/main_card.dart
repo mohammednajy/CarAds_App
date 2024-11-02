@@ -11,8 +11,8 @@ class MainCard extends StatelessWidget {
   final Widget child;
   final double top;
   final double bottom;
-  final double left;
-  final double right;
+  final double start;
+  final double end;
   final double horizontal;
   final double vertical;
 
@@ -25,8 +25,8 @@ class MainCard extends StatelessWidget {
     required this.child,
     this.top = 0,
     this.bottom = 0,
-    this.left = 0,
-    this.right = 0,
+    this.start = 0,
+    this.end = 0,
     this.horizontal = 0,
     this.vertical = 0,
   });
@@ -36,8 +36,8 @@ class MainCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        margin:
-            EdgeInsets.only(bottom: bottom, left: left, right: right, top: top),
+        margin: EdgeInsetsDirectional.only(
+            bottom: bottom, start: start, end: end, top: top),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.borderRadius)),
         color: backgroundColor,

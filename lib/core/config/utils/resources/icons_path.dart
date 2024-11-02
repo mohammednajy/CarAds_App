@@ -13,4 +13,8 @@ class IconsPath {
   static const String addActiveIcon = '${iconsPath}add_active.svg';
   static const String historyActiveIcon = '${iconsPath}history_active.svg';
   static const String profileActiveIcon = '${iconsPath}profile_active.svg';
+  static const String notificationIcon = '${iconsPath}notification_icon.svg';
+  static const String automaticIcon = '${iconsPath}automatic_icon.svg';
+  static const String diselIcon = '${iconsPath}disel_icon.svg';
+  static const String seatIcon = '${iconsPath}seat_icon.svg';
 }
