@@ -14,5 +14,6 @@ class ColorManager {
   static const Color warningColor = Color(0xFF493000F);
   static const Color dragHandColor = Color(0xFFAAABAE);
   static const Color infoColor = Color(0xFF636C9E);
-
+  static const Color yellowSecondary = Color(0xFFFCF4EA);
+  static const Color yellowPrimary = Color(0xFFEAB671);
 }

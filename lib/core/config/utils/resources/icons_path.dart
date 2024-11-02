@@ -17,4 +17,5 @@ class IconsPath {
   static const String automaticIcon = '${iconsPath}automatic_icon.svg';
   static const String diselIcon = '${iconsPath}disel_icon.svg';
   static const String seatIcon = '${iconsPath}seat_icon.svg';
+  static const String shareIcon = '${iconsPath}share_icon.svg';
 }

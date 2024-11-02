@@ -4,6 +4,7 @@ import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:car_ads_app/features/home/presentation/widgets/body_home_widget.dart';
+import 'package:car_ads_app/features/home/presentation/widgets/top_rated_showroom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -31,8 +32,9 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView(
         padding: 20.spaceHorizontal,
-        children: [
+        children: const [
           BodyHomeCard(),
+          TopRatedShowroomWidget(),
         ],
       ),
     );
