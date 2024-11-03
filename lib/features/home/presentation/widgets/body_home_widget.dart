@@ -5,14 +5,13 @@ import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BodyHomeCard extends StatelessWidget {
-  const BodyHomeCard({
-    super.key,
-  });
-
+class BodyHomeCard extends HookConsumerWidget {
+  const BodyHomeCard({super.key});
   static const images = [
     ImagePath.car1,
     ImagePath.car2,
@@ -20,9 +19,9 @@ class BodyHomeCard extends StatelessWidget {
     ImagePath.car4,
     ImagePath.car5,
   ];
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = usePageController();
     return MainCard(
       vertical: 20.height,
       horizontal: 20.height,
@@ -30,10 +29,8 @@ class BodyHomeCard extends StatelessWidget {
         children: [
           SizedBox(
             height: 200.height,
-            child: CarouselView(
-                backgroundColor: Colors.transparent,
-                itemSnapping: true,
-                itemExtent: MediaQuery.sizeOf(context).width,
+            child: PageView(
+                controller: controller,
                 children: List.generate(
                   5,
                   (value) => Image.asset(images[value]),
@@ -74,9 +71,8 @@ class BodyHomeCard extends StatelessWidget {
           ),
           24.addVerticalSpace,
           SmoothPageIndicator(
-            controller: PageController(),
-            count: 6,
-
+            controller: controller,
+            count: 5,
             effect: const ExpandingDotsEffect(
                 activeDotColor: ColorManager.primaryTextColor,
                 spacing: 3,

@@ -2,12 +2,19 @@ import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/config/utils/resources/font_size.dart';
 import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 final ThemeData darkTheme = ThemeData(
-  brightness: Brightness.dark,
+  // brightness: Brightness.dark,
   primaryColor: Colors.grey[900],
   // Define additional dark theme properties here
   scaffoldBackgroundColor: ColorManager.primary,
+
+  colorScheme: const ColorScheme.dark(
+    brightness: Brightness.dark,
+    surface: ColorManager.borderColor,
+    secondary: Colors.white,
+  ),
   fontFamily: FontConstants.fontFamily,
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(
@@ -29,6 +36,30 @@ final ThemeData darkTheme = ThemeData(
       ),
     ),
   ),
+
+  //------------------------------AppBarTheme---------------------------------
+
+  appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
+      toolbarHeight: 70,
+      elevation: 0,
+      iconTheme: IconThemeData(
+        size: FontSize.s28,
+        color: ColorManager.primaryTextColor,
+      ),
+      centerTitle: false,
+      // titleSpacing: 30,
+      actionsIconTheme: IconThemeData(
+        size: 25,
+        color: ColorManager.black,
+      ),
+      backgroundColor: Colors.transparent,
+      titleTextStyle: TextStyle(
+        fontSize: FontSize.s22,
+        fontFamily: FontConstants.fontFamily,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.primaryTextColor,
+      )),
 
   //---------------------------ElevatedButtonTheme----------------------------
   elevatedButtonTheme: ElevatedButtonThemeData(

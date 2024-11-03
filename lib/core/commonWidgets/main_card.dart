@@ -40,7 +40,9 @@ class MainCard extends StatelessWidget {
             bottom: bottom, start: start, end: end, top: top),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.borderRadius)),
-        color: backgroundColor,
+        // color: MediaQuery.platformBrightnessOf(context) == Brightness.light
+        //     ? Colors.white
+        //     : ColorManager.borderColor,
         shadowColor: shadowColor,
         elevation: 0,
         child: Padding(

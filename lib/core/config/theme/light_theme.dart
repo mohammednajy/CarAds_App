@@ -5,10 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 final ThemeData lightTheme = ThemeData(
-  brightness: Brightness.light,
-  primaryColor: Colors.blue,
+  // brightness: Brightness.light,
   scaffoldBackgroundColor: ColorManager.scaffoldColor,
   fontFamily: FontConstants.fontFamily,
+  colorScheme: const ColorScheme.light(
+    primary: Colors.black,
+    brightness: Brightness.light,
+    secondary: Colors.black,
+  ),
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppSize.borderRadius),

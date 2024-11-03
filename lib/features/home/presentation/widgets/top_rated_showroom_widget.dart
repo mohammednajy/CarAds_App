@@ -7,7 +7,6 @@ import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 class TopRatedShowroomWidget extends StatelessWidget {
   const TopRatedShowroomWidget({super.key});
 
@@ -44,7 +43,6 @@ class TopRatedShowroomWidget extends StatelessWidget {
                     fit: BoxFit.fitWidth,
                     width: double.infinity,
                   ),
-                  // 4.addVerticalSpace,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -62,7 +60,6 @@ class TopRatedShowroomWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  // 4.addVerticalSpace,
                   Container(
                     alignment: AlignmentDirectional.center,
                     height: 20,
@@ -74,9 +71,12 @@ class TopRatedShowroomWidget extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           '4.5 ',
-                          style: TextStyle(fontSize: 8),
+                          style: context.labelSmall.copyWith(
+                            fontSize: 8,
+                            color: ColorManager.yellowPrimary,
+                          ),
                         ),
                         Icon(
                           Icons.star,
