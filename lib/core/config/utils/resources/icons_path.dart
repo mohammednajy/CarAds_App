@@ -18,4 +18,9 @@ class IconsPath {
   static const String diselIcon = '${iconsPath}disel_icon.svg';
   static const String seatIcon = '${iconsPath}seat_icon.svg';
   static const String shareIcon = '${iconsPath}share_icon.svg';
+  static const String bmwIcon = '${iconsPath}bmw_icon.svg';
+  static const String audiIcon = '${iconsPath}audi_icon.svg';
+  static const String mazdaIcon = '${iconsPath}mazda_icon.svg';
+  static const String toyotaIcon = '${iconsPath}toyota_icon.svg';
+  static const String showRoomIcon = '${iconsPath}show_room_icon.svg';
 }

@@ -4,6 +4,8 @@ import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.da
 import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
+import 'package:car_ads_app/core/router/router_extention.dart';
+import 'package:car_ads_app/core/router/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,14 +29,19 @@ class BodyHomeCard extends HookConsumerWidget {
       horizontal: 20.height,
       child: Column(
         children: [
-          SizedBox(
-            height: 200.height,
-            child: PageView(
-                controller: controller,
-                children: List.generate(
-                  5,
-                  (value) => Image.asset(images[value]),
-                )),
+          InkWell(
+            onTap: () {
+              context.navigateTo(RoutesName.allCarsScreen);
+            },
+            child: SizedBox(
+              height: 200.height,
+              child: PageView(
+                  controller: controller,
+                  children: List.generate(
+                    5,
+                    (value) => Image.asset(images[value]),
+                  )),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

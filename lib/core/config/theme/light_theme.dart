@@ -13,6 +13,25 @@ final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     secondary: Colors.black,
   ),
+  chipTheme: const ChipThemeData(
+      side: BorderSide.none,
+      selectedColor: ColorManager.borderColor,
+      disabledColor: ColorManager.white10,
+      labelStyle: TextStyle(
+          fontSize: FontSize.s14,
+          color: ColorManager.black,
+          fontWeight: FontWeight.w400),
+      secondaryLabelStyle: TextStyle(
+        fontSize: FontSize.s14,
+        color: ColorManager.white10,
+        fontWeight: FontWeight.w400,
+      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        side: BorderSide.none,
+      )),
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppSize.borderRadius),

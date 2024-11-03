@@ -33,16 +33,13 @@ class MainCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Card(
         margin: EdgeInsetsDirectional.only(
             bottom: bottom, start: start, end: end, top: top),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.borderRadius)),
-        // color: MediaQuery.platformBrightnessOf(context) == Brightness.light
-        //     ? Colors.white
-        //     : ColorManager.borderColor,
         shadowColor: shadowColor,
         elevation: 0,
         child: Padding(

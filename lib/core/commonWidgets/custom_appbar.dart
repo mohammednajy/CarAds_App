@@ -1,5 +1,6 @@
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/main_card.dart';
+import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -39,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : const SizedBox(),
       title: Text(
         title.tr(),
-        style: textStyle,
+        style: textStyle ?? context.headlineMedium.copyWith(fontSize: 22),
       ),
       actions: actionIcon,
     );

@@ -12,4 +12,6 @@ class ImagePath {
   static const String car4 = '${imagePath}car4.png';
   static const String car5 = '${imagePath}car5.png';
   static const String showRoom = '${imagePath}showroom.png';
+  static const String carMedium = '${imagePath}car_medium.png';
+
 }

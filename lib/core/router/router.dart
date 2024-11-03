@@ -1,5 +1,6 @@
 import 'package:car_ads_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:car_ads_app/features/bnb/presentation/screens/main_app_screen.dart';
+import 'package:car_ads_app/features/home/presentation/screens/all_cars_screen.dart';
 import 'package:car_ads_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:car_ads_app/features/onboarding/presentation/screens/splash_screen.dart';
 
@@ -24,6 +25,10 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) => const MainAppScreen(),
           settings: const RouteSettings(name: RoutesName.mainAppScreen));
+    case RoutesName.allCarsScreen:
+      return MaterialPageRoute(
+          builder: (context) => const AllCarsScreen(),
+          settings: const RouteSettings(name: RoutesName.allCarsScreen));
     default:
       return MaterialPageRoute(
         builder: (context) => const Text('wrong path'),

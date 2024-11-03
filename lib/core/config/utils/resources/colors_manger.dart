@@ -16,4 +16,7 @@ class ColorManager {
   static const Color infoColor = Color(0xFF636C9E);
   static const Color yellowSecondary = Color(0xFFFCF4EA);
   static const Color yellowPrimary = Color(0xFFEAB671);
+  static const Color white10 = Color(0xFFF0F0F0);
+  static const Color purpleSecondary = Color(0xFFF3F5FE);
+  static const Color purplePrimary = Color(0xFF636C9E);
 }
