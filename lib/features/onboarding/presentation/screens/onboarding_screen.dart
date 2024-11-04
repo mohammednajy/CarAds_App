@@ -5,6 +5,7 @@ import 'package:car_ads_app/core/router/routes_name.dart';
 import 'package:car_ads_app/core/config/utils/extensions/layout_extensions.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
+import 'package:car_ads_app/core/services/localStorage/shared_pref_setup.dart';
 import 'package:car_ads_app/features/onboarding/data/models/onboarding_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +16,12 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class OnBoardingScreen extends HookConsumerWidget {
   const OnBoardingScreen({super.key});
 
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = usePageController();
     final index = useState(0);
+    SharedPrefController.setShowOnce();
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -74,7 +77,7 @@ class OnBoardingScreen extends HookConsumerWidget {
                       CustomButtonWidget(
                           title: LocaleKeys.joinAsShowrooms.tr(),
                           onPressed: () {
-                            context.setLocale(Locale('ar'));
+                            context.setLocale(Locale('en'));
                             //TODO: futuristic
                             print('go to show rooms screen');
                           })

@@ -17,25 +17,25 @@ class SharedPrefController {
 
   // -----------------------  Show OnBoarding  ---------------------------------
 
-  Future<void> setShowOnce(bool showOnce) async {
-    await preferences.setBool(PrefKeys.showOnce.toString(), showOnce);
+  static Future<void> setShowOnce() async {
+    await preferences.setBool(PrefKeys.showOnce.toString(), true);
   }
 
-  bool getShowOnce() =>
+  static bool getShowOnce() =>
       preferences.getBool(PrefKeys.showOnce.toString()) ?? false;
 
   // ---------------------------  User Logged in  ------------------------------
 
-  Future<void> setLoggedIn() async {
+  static Future<void> setLoggedIn() async {
     await preferences.setBool(PrefKeys.loggedIn.toString(), true);
   }
 
-  bool getLoggedIn() =>
+  static bool getLoggedIn() =>
       preferences.getBool(PrefKeys.loggedIn.toString()) ?? false;
 
   // ---------------------------  User Data  -----------------------------------
 
-  void removeUser() {
+  static void removeUser() {
     if (preferences.containsKey(PrefKeys.user.toString())) {
       preferences.remove(PrefKeys.user.toString());
     }
@@ -44,15 +44,15 @@ class SharedPrefController {
     }
   }
 
-  Future<void> clear() async {
+  static Future<void> clear() async {
     preferences.clear();
   }
 
-  Future<void> saveUserData(UserModel user) async {
+  static Future<void> saveUserData(UserModel user) async {
     preferences.setString(PrefKeys.user.toString(), jsonEncode(user.toJson()));
   }
 
-  UserModel getUserData() {
+  static UserModel getUserData() {
     final userData = preferences.getString(PrefKeys.user.toString());
 
     if (userData != null) {
