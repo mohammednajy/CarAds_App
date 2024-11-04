@@ -5,10 +5,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 final ThemeData lightTheme = ThemeData(
-  brightness: Brightness.light,
-  primaryColor: Colors.blue,
+  // brightness: Brightness.light,
   scaffoldBackgroundColor: ColorManager.scaffoldColor,
   fontFamily: FontConstants.fontFamily,
+  colorScheme: const ColorScheme.light(
+    primary: Colors.black,
+    brightness: Brightness.light,
+    secondary: Colors.black,
+  ),
+
+  //----------------------------- ChipTheme ------------------------------
+
+  chipTheme: const ChipThemeData(
+      side: BorderSide.none,
+      selectedColor: ColorManager.borderColor,
+      disabledColor: ColorManager.white10,
+      labelStyle: TextStyle(
+          fontSize: FontSize.s14,
+          color: ColorManager.black,
+          fontWeight: FontWeight.w400),
+      secondaryLabelStyle: TextStyle(
+        fontSize: FontSize.s14,
+        color: ColorManager.white10,
+        fontWeight: FontWeight.w400,
+      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        side: BorderSide.none,
+      )),
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(AppSize.borderRadius),
