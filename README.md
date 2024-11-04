@@ -39,11 +39,12 @@ lib
 
 These are the main packages used in the app:
 
-- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod) for data caching, dependency injection, and more
-- [easy localization](https://pub.dev/packages/easy_localization) for internationalizing and localization. 
-- [skeletonizer](https://pub.dev/packages/skeletonizer) for provide a visually engaging during loading screens. 
-- [flutter_svg](https://pub.dev/packages/flutter_svg) for use Scalable Vector Graphics (SVG). 
-- [Flutter Hooks](https://pub.dev/packages/flutter_hooks) to handling local state powerfully
+- [Hooks Riverpod](https://pub.dev/packages/hooks_riverpod) for data caching, dependency injection, and more.
+- [Easy localization](https://pub.dev/packages/easy_localization) for internationalizing and localization. 
+- [Skeletonizer](https://pub.dev/packages/skeletonizer) for provide a visually engaging during loading screens. 
+- [Flutter SVG](https://pub.dev/packages/flutter_svg) for use Scalable Vector Graphics (SVG). 
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks) to handling local state powerfully.
+- [Shared Preferences](https://pub.dev/packages/shared_preferences)  for storing small pieces of data locally.
 
 
 
