@@ -23,7 +23,25 @@ final ThemeData darkTheme = ThemeData(
     buttonColor: ColorManager.white,
   ),
   //-----------------------------TextButtonTheme------------------------------
-
+  chipTheme: const ChipThemeData(
+      side: BorderSide.none,
+      selectedColor: ColorManager.borderColor,
+      disabledColor: ColorManager.white10,
+      labelStyle: TextStyle(
+          fontSize: FontSize.s14,
+          color: ColorManager.black,
+          fontWeight: FontWeight.w400),
+      secondaryLabelStyle: TextStyle(
+        fontSize: FontSize.s14,
+        color: ColorManager.white10,
+        fontWeight: FontWeight.w400,
+      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        side: BorderSide.none,
+      )),
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
       foregroundColor: WidgetStateProperty.all(ColorManager.white),
