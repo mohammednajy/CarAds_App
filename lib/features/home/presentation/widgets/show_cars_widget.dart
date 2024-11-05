@@ -23,7 +23,9 @@ class ShowCarsWidget extends StatelessWidget {
               mainAxisExtent: 200.height,
               mainAxisSpacing: 10),
           itemBuilder: (context, index) => MainCard(
-                onTap: () {},
+                onTap: () {
+                  
+                },
                 vertical: 16,
                 horizontal: 8,
                 child: Column(

@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ThemeManager extends Notifier<ThemeMode> {
   @override
-  ThemeMode build() => ThemeMode.system;
+  ThemeMode build() => ThemeMode.light;
 
   void toggleTheme() {
     state = (state == ThemeMode.light) ? ThemeMode.dark : ThemeMode.light;

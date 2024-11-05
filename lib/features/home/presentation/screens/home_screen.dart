@@ -9,7 +9,6 @@ import 'package:car_ads_app/features/home/presentation/widgets/top_rated_showroo
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -25,11 +24,7 @@ class HomeScreen extends ConsumerWidget {
           MainCard(
             end: 20,
             onTap: () async {
-              CollectionReference users =
-                  FirebaseFirestore.instance.collection('user');
-              final value = await users.doc('osOuZmzepTWlf89yNkTy').get();
-              print(value.data());
-              print('go to notification screen');
+              ref.read(themeManagerProvider.notifier).toggleTheme();
             },
             horizontal: 10,
             vertical: 10,
