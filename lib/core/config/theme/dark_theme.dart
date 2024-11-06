@@ -29,7 +29,7 @@ final ThemeData darkTheme = ThemeData(
       disabledColor: ColorManager.white10,
       labelStyle: TextStyle(
           fontSize: FontSize.s14,
-          color: ColorManager.black,
+          color: ColorManager.primary,
           fontWeight: FontWeight.w400),
       secondaryLabelStyle: TextStyle(
         fontSize: FontSize.s14,
@@ -69,7 +69,7 @@ final ThemeData darkTheme = ThemeData(
       // titleSpacing: 30,
       actionsIconTheme: IconThemeData(
         size: 25,
-        color: ColorManager.black,
+        color: ColorManager.primary,
       ),
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -99,6 +99,43 @@ final ThemeData darkTheme = ThemeData(
       ),
       minimumSize: const Size(double.infinity, 48),
       maximumSize: const Size(double.infinity, 48),
+    ),
+  ),
+  //--------------------------InputDecorationTheme----------------------------
+
+  inputDecorationTheme: InputDecorationTheme(
+    hintStyle: const TextStyle(
+      color: ColorManager.primary10,
+      fontSize: FontSize.s14,
+      fontWeight: FontWeight.w400,
+    ),
+    filled: true,
+    fillColor: ColorManager.borderColor,
+    contentPadding: const EdgeInsets.symmetric(
+      vertical: AppPadding.paddingVerticalTextField,
+      horizontal: AppPadding.paddingHorizontalTextField,
+    ),
+    border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(AppSize.borderRadius),
+        borderSide: const BorderSide(color: Colors.transparent)),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(AppSize.borderRadius),
+      borderSide: const BorderSide(
+        color: Colors.transparent,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(AppSize.borderRadius),
+      borderSide: const BorderSide(
+        color: ColorManager.warningColor,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(AppSize.borderRadius),
+      borderSide: const BorderSide(
+        color: ColorManager.primary10,
+        width: 1,
+      ),
     ),
   ),
 

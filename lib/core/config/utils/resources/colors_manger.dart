@@ -8,7 +8,6 @@ class ColorManager {
   static const Color backGroundColor = Color(0xFFFFFFFF);
   static const Color scaffoldColor = Color(0xFFF6F6F6);
   static const Color borderColor = Color(0xFF323232);
-  static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
   static const Color successColor = Color(0xFF45BB6F);
   static const Color warningColor = Color(0xFF493000F);
