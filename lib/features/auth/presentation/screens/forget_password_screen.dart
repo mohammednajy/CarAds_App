@@ -10,16 +10,21 @@ import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
 import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
+import 'package:car_ads_app/features/auth/domain/providers/signIn_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordScreen extends HookConsumerWidget {
   ForgetPasswordScreen({super.key});
 
-  final TextEditingController emailController = TextEditingController();
+  final GlobalKey<FormState> forgetFormKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final emailController = useTextEditingController();
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: '',
@@ -34,7 +39,7 @@ class ForgetPasswordScreen extends StatelessWidget {
           }
         },
         child: Form(
-          // key: value.reSetPasswordFormKey,
+          key: forgetFormKey,
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(
@@ -44,9 +49,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CustomSvgAssets(
-                    path: ImagePath.forgetImage,
-                  ),
+                  const CustomSvgAssets(path: ImagePath.forgetImage),
                   16.addVerticalSpace,
                   Text(
                     LocaleKeys.forgotYourPassword.tr(),
@@ -71,8 +74,12 @@ class ForgetPasswordScreen extends StatelessWidget {
                     // isLoading: value.isLoadingReSet,
                     title: LocaleKeys.send.tr(),
                     onPressed: () {
-                      // value.reSetPassword(email: emailController.text.trim());
-                      context.navigateTo(RoutesName.checkEmailScreen);
+                      if (forgetFormKey.currentState!.validate()) {
+                        ref
+                            .read(loginProvider.notifier)
+                            .reSetPassword(email: emailController.text.trim());
+                        context.navigateTo(RoutesName.checkEmailScreen);
+                      }
                     },
                   ),
                 ],
