@@ -18,8 +18,8 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 2), () {
       context.navigateAndReplace(SharedPrefController.getShowOnce()
           ? SharedPrefController.getLoggedIn()
-              ? RoutesName.mainAppScreen
-              : RoutesName.login
+              ? RoutesName.homeScreenTest
+              : RoutesName.signInScreen
           : RoutesName.onboarding);
     });
     return Scaffold(

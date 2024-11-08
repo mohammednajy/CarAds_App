@@ -19,9 +19,9 @@ class OnBoardingScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    SharedPrefController.setShowOnce();
     final controller = usePageController();
     final index = useState(0);
-    SharedPrefController.setShowOnce();
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -71,7 +71,7 @@ class OnBoardingScreen extends HookConsumerWidget {
                       CustomButtonWidget(
                           title: LocaleKeys.joinAsUser.tr(),
                           onPressed: () {
-                            context.navigateAndReplace(RoutesName.login);
+                            context.navigateAndReplace(RoutesName.signInScreen);
                           }),
                       16.addVerticalSpace,
                       CustomButtonWidget(
