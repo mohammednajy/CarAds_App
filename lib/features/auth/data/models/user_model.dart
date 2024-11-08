@@ -1,4 +1,4 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
   final String uId;
@@ -15,16 +15,16 @@ class UserModel {
     required this.phone,
   });
 
-  // factory UserModel.fromDocumentSnapshot(DocumentSnapshot snapshot) {
-  //   final data = snapshot.data() as Map<String, dynamic>;
-  //   return UserModel(
-  //     uId: data['uId'],
-  //     name: data['name'],
-  //     email: data['email'],
-  //     image: data['image'] ?? '',
-  //     phone: data['phone'] ?? '',
-  //   );
-  // }
+  factory UserModel.fromDocumentSnapshot(DocumentSnapshot snapshot) {
+    final data = snapshot.data() as Map<String, dynamic>;
+    return UserModel(
+      uId: data['uId'],
+      name: data['name'],
+      email: data['email'],
+      image: data['image'] ?? '',
+      phone: data['phone'] ?? '',
+    );
+  }
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
