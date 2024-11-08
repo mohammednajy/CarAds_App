@@ -53,7 +53,7 @@ class BottomSheetWidget extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.close,
-                  color: ColorManager.black,
+                  color: ColorManager.primary,
                 ),
               )
             ],

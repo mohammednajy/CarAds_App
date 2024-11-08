@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 // use this across
 // context.bodySmall
 
-extension TextStyleExtension
- on BuildContext {
+extension TextStyleExtension on BuildContext {
   TextStyle get bodySmall => Theme.of(this).textTheme.bodySmall!;
 
   TextStyle get bodyMedium => Theme.of(this).textTheme.bodyMedium!;
@@ -14,4 +13,8 @@ extension TextStyleExtension
   TextStyle get titleMedium => Theme.of(this).textTheme.titleMedium!;
 
   TextStyle get headlineMedium => Theme.of(this).textTheme.headlineMedium!;
+}
+
+extension BuildContextExtensions on BuildContext {
+  bool get isDark => Theme.of(this).brightness == Brightness.dark;
 }
