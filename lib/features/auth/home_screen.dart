@@ -7,9 +7,11 @@ class HomeScreenTest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(
-        'Welcome in Home page',
-        style: context.titleMedium,
+      body: Center(
+        child: Text(
+          'Welcome in Home page',
+          style: context.titleMedium,
+        ),
       ),
     );
   }

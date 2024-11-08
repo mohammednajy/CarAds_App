@@ -27,7 +27,7 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       );
     case RoutesName.signUpScreen:
       return MaterialPageRoute(
-        builder: (context) => const SignUpScreen(),
+        builder: (context) =>  SignUpScreen(),
       );
     case RoutesName.checkEmailScreen:
       return MaterialPageRoute(
