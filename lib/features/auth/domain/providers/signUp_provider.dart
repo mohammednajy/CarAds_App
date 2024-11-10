@@ -1,3 +1,6 @@
+import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
+import 'package:car_ads_app/core/router/router_extention.dart';
+import 'package:car_ads_app/core/router/routes_name.dart';
 import 'package:car_ads_app/features/auth/data/dats_source/auth_data_source.dart';
 import 'package:car_ads_app/features/auth/data/models/user_model.dart';
 import 'package:car_ads_app/features/auth/domain/repository/auth_repository.dart';
@@ -32,6 +35,8 @@ class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
         phone: phone,
       ),
     );
+    navigatorKey.currentContext!.navigateAndRemoveUntil(
+        RoutesName.homeScreenTest, (_) => false);
   }
 }
 
