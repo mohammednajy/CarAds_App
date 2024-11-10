@@ -11,6 +11,7 @@ import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:open_mail_app/open_mail_app.dart';
 
 class CheckEmailScreen extends StatelessWidget {
   const CheckEmailScreen({super.key});
@@ -65,24 +66,23 @@ class CheckEmailScreen extends StatelessWidget {
             CustomButtonWidget(
               title: LocaleKeys.openEmail.tr(),
               onPressed: () async {
-                context.navigateTo(RoutesName.oTPScreen);
-                // OpenMailApp.getMailApps();
-                // var result = await OpenMailApp.openMailApp(
-                //   nativePickerTitle: 'Select email app to open',
-                // );
-                // if (!result.didOpen && !result.canOpen) {
-                //   showNoMailAppsDialog(context);
-                // } else if (!result.didOpen && result.canOpen) {
-                //   showDialog(
-                //     context: context,
-                //     builder: (_) {
-                //       return MailAppPickerDialog(
-                //         mailApps: result.options,
-                //       );
-                //     },
-                //   );
-                // }
-                // AppRouter.goTo(screenName: ScreenName.createNewPasswordScreen);
+                OpenMailApp.getMailApps();
+                var result = await OpenMailApp.openMailApp(
+                  nativePickerTitle: 'Select email app to open',
+                );
+                if (!result.didOpen && !result.canOpen) {
+                  showNoMailAppsDialog(context);
+                } else if (!result.didOpen && result.canOpen) {
+                  showDialog(
+                    context: context,
+                    builder: (_) {
+                      return MailAppPickerDialog(
+                        mailApps: result.options,
+                      );
+                    },
+                  );
+                }
+                 context.navigateTo(RoutesName.signInScreen);
               },
             ),
             16.addVerticalSpace,

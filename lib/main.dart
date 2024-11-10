@@ -13,7 +13,7 @@ void main() async {
 
   // Shared Preferences Setup
  await SharedPrefController.init();
-
+// WidgetsBinding.instance.addPostFrameCallback(callback)
   //Firebase Configuration
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
