@@ -71,14 +71,13 @@ class ForgetPasswordScreen extends HookConsumerWidget {
                   ),
                   24.addVerticalSpace,
                   CustomButtonWidget(
-                    // isLoading: value.isLoadingReSet,
+                    isLoading: ref.watch(loginProvider).isLoading,
                     title: LocaleKeys.send.tr(),
                     onPressed: () {
                       if (forgetFormKey.currentState!.validate()) {
                         ref
                             .read(loginProvider.notifier)
                             .reSetPassword(email: emailController.text.trim());
-                        context.navigateTo(RoutesName.checkEmailScreen);
                       }
                     },
                   ),

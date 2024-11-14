@@ -28,21 +28,6 @@ class SignInScreen extends HookConsumerWidget {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final bool showPassState = ref.watch(showPassProvider);
-
-    ref.listen(loginProvider, (pre, next) {
-      next.when(data: (data) {
-        print(data.toString());
-      }, error: (error, _) {
-        print(error);
-      }, loading: () {
-        Center(
-          child: CircularProgressIndicator.adaptive(
-            backgroundColor:
-                context.isDark ? ColorManager.primary : ColorManager.primary10,
-          ),
-        );
-      });
-    });
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: GestureDetector(
@@ -122,15 +107,13 @@ class SignInScreen extends HookConsumerWidget {
                     16.addVerticalSpace,
                     Consumer(
                       builder: (context, ref, child) => CustomButtonWidget(
-                        // isLoading: ref.watch(loginProvider),
+                        isLoading: ref.watch(loginProvider).isLoading,
                         title: LocaleKeys.signIn.tr(),
                         onPressed: () async {
                           if (loginFormKey.currentState!.validate()) {
                             ref.read(loginProvider.notifier).login(
                                 email: emailController.text,
                                 password: passwordController.text);
-                            context.navigateAndRemoveUntil(
-                                RoutesName.homeScreenTest, (_) => false);
                           }
                         },
                       ),

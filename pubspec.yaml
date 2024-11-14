@@ -24,7 +24,11 @@ dependencies:
   shared_preferences: ^2.3.2
   cloud_firestore: ^5.4.4
   open_mail_app: ^0.4.5
-  intl_phone_field: ^3.2.0
+  intl_phone_field:
+    git:
+      url: https://github.com/Ahedeid/intl_phone_field.git
+      ref: master
+  google_sign_in: ^6.2.2
 
 dev_dependencies:
   flutter_lints: ^3.0.0

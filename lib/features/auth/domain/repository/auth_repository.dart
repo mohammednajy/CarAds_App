@@ -43,4 +43,16 @@ class AuthRepository {
       throw e.toString();
     }
   }
+
+
+  Future<UserModel?> signUpWithGoogle() async {
+    try {
+      final user = await authDataSource.signUpWithGoogle();
+      SharedPrefController.setLoggedIn();
+      SharedPrefController.saveUserData(user);
+      return user;
+    } on Exception catch (e) {
+      throw e.toString();
+    }
+  }
 }
