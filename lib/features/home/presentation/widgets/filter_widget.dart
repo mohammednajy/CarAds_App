@@ -1,4 +1,3 @@
-import 'package:car_ads_app/core/config/theme/theme_provider.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,6 @@ class FilterWidget extends HookConsumerWidget {
         itemBuilder: (context, index) => ChoiceChip(
           onSelected: (value) {
             selectedIndex.value = index;
-            ref.read(themeManagerProvider.notifier).toggleTheme();
           },
           label: Container(
             alignment: Alignment.topCenter,

@@ -1,4 +1,5 @@
 import 'package:car_ads_app/core/commonWidgets/main_card.dart';
+import 'package:car_ads_app/core/commonWidgets/netowrk_image_widget.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
@@ -38,7 +39,10 @@ class BodyHomeCard extends HookConsumerWidget {
                     onPageChanged: (value) => bannerIndex.value = value,
                     children: List.generate(
                       data.length,
-                      (value) => Image.network(data[value].photos.first),
+                      (value) => NetworkImageWidget(
+                        image: data[value].photos.first,
+                        height: 200.height,
+                      ),
                     )),
               ),
             ),
@@ -90,7 +94,13 @@ class BodyHomeCard extends HookConsumerWidget {
         ),
       ),
       error: (error, stackTrace) => Text(error.toString()),
-      loading: () => CircularProgressIndicator.adaptive(),
+      loading: () => Skeletonizer(
+          enabled: true,
+          child: Container(
+            color: Colors.white,
+            height: 300.height,
+            width: double.infinity,
+          )),
     );
   }
 }
