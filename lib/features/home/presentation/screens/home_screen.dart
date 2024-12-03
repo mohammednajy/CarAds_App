@@ -24,7 +24,6 @@ class HomeScreen extends ConsumerWidget {
           MainCard(
             end: 20,
             onTap: () async {
-              ref.read(themeManagerProvider.notifier).toggleTheme();
             },
             horizontal: 10,
             vertical: 10,
