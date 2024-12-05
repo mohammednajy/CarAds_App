@@ -29,6 +29,7 @@ dependencies:
       url: https://github.com/Ahedeid/intl_phone_field.git
       ref: master
   google_sign_in: ^6.2.2
+  flutter_facebook_auth: ^7.1.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0

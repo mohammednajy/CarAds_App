@@ -44,7 +44,8 @@ class SocialMediaWidget extends ConsumerWidget {
             ),
             GestureDetector(
               onTap: () {
-                context.setLocale(Locale('en'));
+                ref.read(loginProvider.notifier).signInWithFacebook();
+                // context.setLocale(Locale('en'));
               },
               child: const MainCard(
                   horizontal: 13,

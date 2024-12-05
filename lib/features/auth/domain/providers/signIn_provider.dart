@@ -6,6 +6,7 @@ import 'package:car_ads_app/features/auth/data/models/user_model.dart';
 import 'package:car_ads_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 
@@ -53,6 +54,33 @@ class LoginProvider extends AutoDisposeAsyncNotifier<UserModel?> {
             () async => authRepository.signUpWithGoogle(),
       );
       navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.homeScreenTest,(_)=> false);
+    } on FirebaseException catch (e) {
+      throw e.toString();
+    }
+  }
+//------------------------------ signInWithFacebook------------------------------
+
+  Future<void> signInWithFacebook() async {
+    try {
+      state = const AsyncLoading();
+      print('start');
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+      if (loginResult.status == LoginStatus.success) {
+        print(' in IF ');
+        // Create a credential from the access token
+        final OAuthCredential facebookAuthCredential = FacebookAuthProvider
+            .credential(loginResult.accessToken!.tokenString);
+
+        // Once signed in, return the UserCredential
+         FirebaseAuth.instance.signInWithCredential(
+            facebookAuthCredential);
+
+        navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.homeScreenTest,(_)=> false);
+
+      }else{
+        print(loginResult.status);
+        print(loginResult.message);
+      }
     } on FirebaseException catch (e) {
       throw e.toString();
     }
