@@ -79,7 +79,7 @@ class LoginProvider extends AutoDisposeAsyncNotifier<UserModel?> {
 
       }else{
         print(loginResult.status);
-        print(loginResult.message);
+        print(loginResult.message );
       }
     } on FirebaseException catch (e) {
       throw e.toString();
