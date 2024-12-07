@@ -31,7 +31,7 @@ class LoginProvider extends AutoDisposeAsyncNotifier<UserModel?> {
       () async => authRepository.login(email: email, password: password),
     );
     navigatorKey.currentContext!.navigateAndRemoveUntil(
-        RoutesName.homeScreenTest, (_) => false);
+        RoutesName.mainAppScreen, (_) => false);
   }
 
   //------------------------------ ReSet Password ------------------------------
@@ -53,7 +53,7 @@ class LoginProvider extends AutoDisposeAsyncNotifier<UserModel?> {
       state = await AsyncValue.guard(
             () async => authRepository.signUpWithGoogle(),
       );
-      navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.homeScreenTest,(_)=> false);
+      navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.mainAppScreen,(_)=> false);
     } on FirebaseException catch (e) {
       throw e.toString();
     }
@@ -75,7 +75,7 @@ class LoginProvider extends AutoDisposeAsyncNotifier<UserModel?> {
          FirebaseAuth.instance.signInWithCredential(
             facebookAuthCredential);
 
-        navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.homeScreenTest,(_)=> false);
+        navigatorKey.currentContext!.navigateAndRemoveUntil(RoutesName.mainAppScreen,(_)=> false);
 
       }else{
         print(loginResult.status);

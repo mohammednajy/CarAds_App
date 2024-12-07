@@ -36,7 +36,7 @@ class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
       ),
     );
     navigatorKey.currentContext!.navigateAndRemoveUntil(
-        RoutesName.homeScreenTest, (_) => false);
+        RoutesName.mainAppScreen, (_) => false);
   }
 }
 
