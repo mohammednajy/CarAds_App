@@ -82,5 +82,27 @@
     	</dict>
     </array>
     <!-- End of the Google Sign-in Section -->
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb1317164245946584</string>
+        </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1317164245946584</string>
+    <key>FacebookClientToken</key>
+    <string>35a6457b580340fab606be32b508e7d3</string>
+    <key>FacebookDisplayName</key>
+    <string>Car Ads App</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-share-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>
