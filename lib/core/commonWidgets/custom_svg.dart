@@ -7,6 +7,7 @@ class CustomSvgAssets extends StatelessWidget {
   final BoxFit fit;
   final double? width;
   final double? height;
+  final Color? color;
 
   const CustomSvgAssets({
     super.key,
@@ -15,6 +16,7 @@ class CustomSvgAssets extends StatelessWidget {
     this.fit = BoxFit.scaleDown,
     this.width,
     this.height,
+    this.color,
   });
 
   @override
@@ -25,6 +27,7 @@ class CustomSvgAssets extends StatelessWidget {
       colorFilter: colorFilter,
       height: height,
       width: width,
+      color: color,
     );
   }
 }

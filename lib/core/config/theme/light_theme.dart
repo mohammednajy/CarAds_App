@@ -13,16 +13,17 @@ final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     secondary: Colors.black,
   ),
-
-  // chip theme 
+  
+  //----------------------------- ChipTheme ------------------------------
   chipTheme: const ChipThemeData(
       side: BorderSide.none,
       selectedColor: ColorManager.borderColor,
       disabledColor: ColorManager.white10,
       labelStyle: TextStyle(
-          fontSize: FontSize.s14,
-          color: ColorManager.black,
-          fontWeight: FontWeight.w400),
+        fontSize: FontSize.s14,
+        color: ColorManager.primary,
+        fontWeight: FontWeight.w400,
+      ),
       secondaryLabelStyle: TextStyle(
         fontSize: FontSize.s14,
         color: ColorManager.white10,
@@ -64,7 +65,7 @@ final ThemeData lightTheme = ThemeData(
       // titleSpacing: 30,
       actionsIconTheme: IconThemeData(
         size: 25,
-        color: ColorManager.black,
+        color: ColorManager.primary,
       ),
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -103,6 +104,7 @@ final ThemeData lightTheme = ThemeData(
     hintStyle: const TextStyle(
       color: ColorManager.secondTextColor,
       fontSize: FontSize.s14,
+      fontWeight: FontWeight.w400,
     ),
     filled: true,
     fillColor: ColorManager.backGroundColor,

@@ -10,7 +10,7 @@ class CustomButtonWidget extends StatelessWidget {
     this.textColor,
     this.isLoading = false,
     this.showIcon = false,
-    this.fontSize,
+    this.fontSize ,
     this.fontWeight,
     this.style,
     this.icon,

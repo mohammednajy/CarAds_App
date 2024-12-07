@@ -7,14 +7,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar(
-      {super.key,
-      required this.title,
-      this.iconAction,
-      this.onTap,
-      this.visible = true,
-      this.actionIcon,
-      this.textStyle});
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.iconAction,
+    this.onTap,
+    this.visible = true,
+    this.actionIcon,
+    this.textStyle,
+  });
 
   final String title;
   final String? iconAction;
@@ -22,6 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool visible;
   final List<Widget>? actionIcon;
   final TextStyle? textStyle;
+  
   @override
   Widget build(BuildContext context) {
     return AppBar(
