@@ -1,5 +1,6 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
+import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
 import 'package:car_ads_app/core/config/utils/extensions/layout_extensions.dart';
@@ -55,7 +56,9 @@ class OnBoardingScreen extends HookConsumerWidget {
               controller: controller, // PageController
               count: 3,
               effect: const ExpandingDotsEffect(
-                  dotHeight: 9, dotWidth: 10), // your preferred effect
+                  activeDotColor: ColorManager.primary,
+                  dotHeight: 9,
+                  dotWidth: 10), // your preferred effect
             ).center(),
             40.addVerticalSpace,
             index.value != 2

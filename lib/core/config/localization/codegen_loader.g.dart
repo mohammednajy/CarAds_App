@@ -26,6 +26,11 @@ class CodegenLoader extends AssetLoader{
   "joinAsUser": "Join Now As A User",
   "joinAsShowrooms": "Join Now As A Showrooms",
   "splashMessage": "Your Gateway to Car Showrooms and Rental Offices",
+  "home": "Home",
+  "explore": "Explore",
+  "add": "Add",
+  "history": "History",
+  "profile": "Profile"
   "welcomeBackToCarAds": "Welcome Back to CarAds!",
   "password": "Password",
   "signInToYourAccountAndGetBack": "Sign in to your account and get back on track with CarAds",
@@ -68,6 +73,11 @@ static const Map<String,dynamic> ar = {
   "joinAsUser": "انضم الآن كمستخدم",
   "joinAsShowrooms": "انضم الآن كصاحب معرض",
   "splashMessage": "بوابتك إلى معارض السيارات ومكاتب التأجير",
+  "home": "الرئيسية",
+  "explore": "استكشاف",
+  "add": "إضافة",
+  "history": "السجل",
+  "profile": "الملف الشخصي"
   "welcomeBackToCarAds": "مرحبا بك مجددا في تطبيق كار أدز",
   "password": "كلمة السر",
   "signInToYourAccountAndGetBack": "قم بتسجيل الدخول إلى حسابك والعودة إلى المسار الصحيح باستخدام البطاقات",
