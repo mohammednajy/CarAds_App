@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool visible;
   final List<Widget>? actionIcon;
   final TextStyle? textStyle;
-
+  
   @override
   Widget build(BuildContext context) {
     return AppBar(

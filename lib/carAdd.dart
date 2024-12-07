@@ -23,7 +23,7 @@ class CarAdsApp extends ConsumerWidget {
         darkTheme: darkTheme,
         themeMode: themeManager,
         onGenerateRoute: onGenerateRoute,
-        initialRoute: RoutesName.splash,
+        initialRoute: RoutesName.mainAppScreen,
         theme: lightTheme,
         navigatorKey: navigatorKey);
   }

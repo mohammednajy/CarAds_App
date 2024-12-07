@@ -13,9 +13,8 @@ final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     secondary: Colors.black,
   ),
-
+  
   //----------------------------- ChipTheme ------------------------------
-
   chipTheme: const ChipThemeData(
       side: BorderSide.none,
       selectedColor: ColorManager.borderColor,

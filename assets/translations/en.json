@@ -39,4 +39,9 @@
   "fullName": "Full Name",
   "phoneNumber": "Phone Number",
   "alreadyHaveAccount": "Already have an account? "
+    "home": "Home",
+    "explore": "Explore",
+    "add": "Add",
+    "history": "History",
+    "profile": "Profile"
 }

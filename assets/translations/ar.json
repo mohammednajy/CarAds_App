@@ -39,5 +39,9 @@
   "fullName": "الاسم بالكامل",
   "phoneNumber": "رقم الهاتف",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟ "
-
+    "home": "الرئيسية",
+    "explore": "استكشاف",
+    "add": "إضافة",
+    "history": "السجل",
+    "profile": "الملف الشخصي"
 }
