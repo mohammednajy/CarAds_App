@@ -30,7 +30,7 @@ class CodegenLoader extends AssetLoader{
   "explore": "Explore",
   "add": "Add",
   "history": "History",
-  "profile": "Profile"
+  "profile": "Profile",
   "welcomeBackToCarAds": "Welcome Back to CarAds!",
   "password": "Password",
   "signInToYourAccountAndGetBack": "Sign in to your account and get back on track with CarAds",
@@ -77,7 +77,7 @@ static const Map<String,dynamic> ar = {
   "explore": "استكشاف",
   "add": "إضافة",
   "history": "السجل",
-  "profile": "الملف الشخصي"
+  "profile": "الملف الشخصي",
   "welcomeBackToCarAds": "مرحبا بك مجددا في تطبيق كار أدز",
   "password": "كلمة السر",
   "signInToYourAccountAndGetBack": "قم بتسجيل الدخول إلى حسابك والعودة إلى المسار الصحيح باستخدام البطاقات",
