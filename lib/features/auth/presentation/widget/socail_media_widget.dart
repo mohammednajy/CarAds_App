@@ -5,15 +5,14 @@ import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
-import 'package:car_ads_app/features/auth/domain/providers/signIn_provider.dart';
+import 'package:car_ads_app/features/auth/domain/providers/signIn_facebook_provider.dart';
+import 'package:car_ads_app/features/auth/domain/providers/signIn_google_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SocialMediaWidget extends ConsumerWidget {
-  const SocialMediaWidget({
-    super.key,
-  });
+  const SocialMediaWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +31,7 @@ class SocialMediaWidget extends ConsumerWidget {
           children: [
             GestureDetector(
               onTap: () {
-                ref.read(loginProvider.notifier).signInWithGoogle();
+                ref.read(signInWithGoogleProvider.notifier).signInWithGoogle();
               },
               child: const MainCard(
                   horizontal: 13,
@@ -44,7 +43,9 @@ class SocialMediaWidget extends ConsumerWidget {
             ),
             GestureDetector(
               onTap: () {
-                ref.read(loginProvider.notifier).signInWithFacebook();
+                ref
+                    .read(signInWithFacebookProvider.notifier)
+                    .signInWithFacebook();
                 // context.setLocale(Locale('en'));
               },
               child: const MainCard(
@@ -65,8 +66,9 @@ class SocialMediaWidget extends ConsumerWidget {
                   border: 25,
                   child: CustomSvgAssets(
                     path: ImagePath.apple,
-                    color: context.isDark ?
-                    ColorManager.primary10: ColorManager.primary,
+                    color: context.isDark
+                        ? ColorManager.primary10
+                        : ColorManager.primary,
                   )),
             ),
           ],

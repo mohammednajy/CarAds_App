@@ -1,35 +1,152 @@
-import 'package:car_ads_app/features/auth/data/dats_source/firebase_source.dart';
+import 'package:car_ads_app/core/services/remote/remote_data_source.dart';
 import 'package:car_ads_app/features/auth/data/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+// TODO first issues when cancel sign in with google or facebook Moves despite rejection => Solve this.
+// TODO Handel The Error state in auth future.
 
 class AuthDataSource {
-  Future<DocumentSnapshot<Map<String, dynamic>>> login(
-      {required String email, required String password}) async {
+  RemoteDataSource remoteDataSource;
+
+  AuthDataSource({required this.remoteDataSource});
+
+  //------------------------ loginWithEmailAndPassword ---------------------------
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
-      return await AuthFirebase.loginWithEmailAndPassword(
-          email: email, password: password);
+      final credential = await remoteDataSource.auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final userDoc =
+          remoteDataSource.userCollection.doc(credential.user!.uid).get();
+      return userDoc;
     } catch (e) {
       throw e.toString();
     }
   }
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> signUp({
+//------------------------ signUpWithEmailAndPassword --------------------------
+
+  Future<UserModel> signUpWithEmailAndPassword({
     required String email,
     required String password,
     required String phone,
     required String fullName,
   }) async {
     try {
-      return await AuthFirebase.signUpWithEmailAndPassword(
-          email: email, password: password, phone: phone, fullName: fullName);
+      final credential =
+          await remoteDataSource.auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      final uid = credential.user!.uid;
+      final UserModel user = UserModel(
+        uId: uid,
+        name: fullName,
+        email: email,
+        image: '',
+        phone: phone,
+      );
+      await remoteDataSource.userCollection.doc(uid).set(user.toJson());
+      return user;
     } catch (e) {
       throw e.toString();
     }
   }
 
+  //------------------------ signUpWithGoogle--------------------------
   Future<UserModel> signUpWithGoogle() async {
     try {
-      return await AuthFirebase.signUpWithGoogle();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      final credentialSign =
+          await remoteDataSource.auth.signInWithCredential(credential);
+
+      if (await checkIfDocExists(credentialSign.user!.uid) == false) {
+        final UserModel user = UserModel(
+          uId: credentialSign.user!.uid,
+          name: credentialSign.user!.displayName!,
+          email: credentialSign.user!.email!,
+          image: credentialSign.user!.photoURL ?? '',
+          phone: credentialSign.user!.phoneNumber ?? '',
+        );
+        await remoteDataSource.userCollection
+            .doc(credentialSign.user!.uid)
+            .set(user.toJson());
+        return user;
+      } else {
+        final UserModel user = UserModel(
+          uId: credentialSign.user!.uid,
+          name: credentialSign.user!.displayName!,
+          email: credentialSign.user!.email!,
+          image: credentialSign.user!.photoURL ?? '',
+          phone: credentialSign.user!.phoneNumber ?? '',
+        );
+        return user;
+      }
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //----------------------------- Check If Document Exists ---------------------
+
+  Future<bool> checkIfDocExists(String docId) async {
+    try {
+      // Get reference to Firestore collection
+      var doc = await remoteDataSource.userCollection.doc(docId).get();
+      return doc.exists;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //------------------------ signInWithFacebook--------------------------
+
+  Future<UserModel> signInWithFacebook() async {
+    try {
+      final LoginResult result = await FacebookAuth.instance.login();
+
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(result.accessToken!.token);
+      final UserCredential userCredential = await remoteDataSource.auth
+          .signInWithCredential(facebookAuthCredential);
+
+      if (await checkIfDocExists(userCredential.user!.uid) == false) {
+        final UserModel user = UserModel(
+          uId: userCredential.user!.uid,
+          name: userCredential.user!.displayName!,
+          email: userCredential.user!.email!,
+          image: userCredential.user!.photoURL ?? '',
+          phone: userCredential.user!.phoneNumber ?? '',
+        );
+        await remoteDataSource.userCollection
+            .doc(userCredential.user!.uid)
+            .set(user.toJson());
+        return user;
+      } else {
+        final UserModel user = UserModel(
+          uId: userCredential.user!.uid,
+          name: userCredential.user!.displayName!,
+          email: userCredential.user!.email!,
+          image: userCredential.user!.photoURL ?? '',
+          phone: userCredential.user!.phoneNumber ?? '',
+        );
+        return user;
+      }
     } catch (e) {
       throw e.toString();
     }

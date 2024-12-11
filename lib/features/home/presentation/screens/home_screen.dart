@@ -4,6 +4,7 @@ import 'package:car_ads_app/core/config/theme/theme_provider.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/icons_path.dart';
+import 'package:car_ads_app/core/services/localStorage/shared_pref_setup.dart';
 import 'package:car_ads_app/features/home/presentation/widgets/body_home_widget.dart';
 import 'package:car_ads_app/features/home/presentation/widgets/top_rated_showroom_widget.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Welcome Ahmed',
+        title: SharedPrefController.getUserData().name,
         visible: false,
         textStyle: context.headlineMedium,
         actionIcon: [

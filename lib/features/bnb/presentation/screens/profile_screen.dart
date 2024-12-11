@@ -20,13 +20,14 @@ class ProfileScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Welcome in Profile page',
+                'Welcome in Profile page${SharedPrefController.getUserData().phone}',
                 style: context.titleMedium,
               ),
               16.addVerticalSpace,
               CustomButtonWidget(title: 'LogOut Now', onPressed: ()async{
                 await FirebaseAuth.instance.signOut();
-                SharedPrefController.clear();
+                // await FacebookAuth.instance.logOut();
+                SharedPrefController.removeUser();
                 context.navigateAndReplace(RoutesName.signInScreen);
               })
             ],
