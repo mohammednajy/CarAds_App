@@ -1,13 +1,14 @@
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
+import 'package:car_ads_app/core/services/remote/remote_data_source.dart';
 import 'package:car_ads_app/features/auth/data/dats_source/auth_data_source.dart';
 import 'package:car_ads_app/features/auth/data/models/user_model.dart';
 import 'package:car_ads_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final authDataSourceProvider = Provider<AuthDataSource>((ref) {
-  return AuthDataSource();
+  return AuthDataSource(remoteDataSource: ref.read(remoteDataSourceProvider));
 });
 
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
@@ -18,7 +19,6 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
   @override
   UserModel? build() => null;
-
   void signUp({
     required String email,
     required String password,
@@ -35,8 +35,8 @@ class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
         phone: phone,
       ),
     );
-    navigatorKey.currentContext!.navigateAndRemoveUntil(
-        RoutesName.mainAppScreen, (_) => false);
+    navigatorKey.currentContext!
+        .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
   }
 }
 

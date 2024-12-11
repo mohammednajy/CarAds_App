@@ -85,7 +85,10 @@ class SignUpScreen extends HookConsumerWidget {
                     16.addVerticalSpace,
                     CountryAndPhoneSection(
                         phoneController: phoneController,
-                        phoneNumber: phoneNumber),
+                      onSaved: (phone) {
+                        phoneNumber = phone!.completeNumber;
+                      },
+                    ),
                     16.addVerticalSpace,
                     CustomTextField(
                       controller: passwordController,
