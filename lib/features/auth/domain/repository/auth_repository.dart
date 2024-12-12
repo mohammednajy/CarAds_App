@@ -63,8 +63,8 @@ class AuthRepository {
   Future<UserModel?> signInWithFacebook() async {
     try {
       final user = await authDataSource.signInWithFacebook();
-      SharedPrefController.setLoggedIn();
       SharedPrefController.saveUserData(user);
+      SharedPrefController.setLoggedIn();
       return user;
     } on Exception catch (e) {
       throw e.toString();

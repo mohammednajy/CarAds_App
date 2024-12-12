@@ -28,11 +28,11 @@ class SignInWithGoogleProvider extends AutoDisposeAsyncNotifier<UserModel?> {
       state = const AsyncLoading();
       final authRepository = ref.read(authRepositoryProvider);
       state = await AsyncValue.guard(
-        () async => authRepository.signUpWithGoogle(),
+        () async => authRepository.signUpWithGoogle().then((_){
+          navigatorKey.currentContext!
+              .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+        }),
       );
-
-      navigatorKey.currentContext!
-          .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
     } on FirebaseException catch (e) {
       throw e.toString();
     }

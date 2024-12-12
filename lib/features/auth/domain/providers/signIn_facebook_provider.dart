@@ -29,10 +29,12 @@ class SignInWithFacebookProvider extends AutoDisposeAsyncNotifier<UserModel?> {
       state = const AsyncLoading();
       final authRepository = ref.read(authRepositoryProvider);
       state = await AsyncValue.guard(
-        () async => authRepository.signInWithFacebook(),
+        () async => authRepository.signInWithFacebook().then((_){
+          navigatorKey.currentContext!
+              .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+        }),
       );
-      navigatorKey.currentContext!
-          .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+
     } on FirebaseException catch (e) {
       throw e.toString();
     }
