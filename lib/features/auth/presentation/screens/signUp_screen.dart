@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -32,6 +33,19 @@ class SignUpScreen extends HookConsumerWidget {
     final nameController = useTextEditingController();
     final phoneController = useTextEditingController();
     final bool showPassState = ref.watch(isShowProvider);
+    final AsyncValue signUp = ref.watch(signUpProvider);
+    signUp.when(
+        data: (data) => const Text('data'),
+        error: (error, stack) {
+          print(error.toString());
+          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+            context.showSnackBar(
+                message: error.toString(), backgroundColor: Colors.red);
+          });
+          return const SizedBox();
+        },
+        loading: (){}
+    );
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: Center(

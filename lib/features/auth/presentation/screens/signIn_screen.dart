@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -30,17 +31,31 @@ class SignInScreen extends HookConsumerWidget {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final bool showPassState = ref.watch(showPassProvider);
+    final AsyncValue login = ref.watch(loginProvider);
+    login.when(
+      data: (data) => const Text('data'),
+      error: (error, stack) {
+        print(error.toString());
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          context.showSnackBar(
+              message: error.toString(), backgroundColor: Colors.red);
+        });
+        return SizedBox();
+      },
+      loading: (){}
+    );
+
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      body: GestureDetector(
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus &&
-              currentFocus.focusedChild != null) {
-            currentFocus.focusedChild!.unfocus();
-          }
-        },
-        child: Form(
+        // resizeToAvoidBottomInset: false,
+        body: GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          currentFocus.focusedChild!.unfocus();
+        }
+      },
+      child: Form(
           key: loginFormKey,
           child: Center(
             child: ref.watch(signInWithGoogleProvider).isLoading ||
@@ -139,10 +154,8 @@ class SignInScreen extends HookConsumerWidget {
                       ),
                     ),
                   ),
-          ),
-        ),
-      ),
-    );
+          )),
+    ));
   }
 }
 

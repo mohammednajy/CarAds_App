@@ -19,6 +19,7 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
   @override
   UserModel? build() => null;
+
   void signUp({
     required String email,
     required String password,
@@ -28,15 +29,21 @@ class SignUpProvider extends AutoDisposeAsyncNotifier<UserModel?> {
     state = const AsyncLoading();
     final authRepository = ref.read(authRepositoryProvider);
     state = await AsyncValue.guard(
-      () async => authRepository.signUp(
+      () async => authRepository
+          .signUp(
         email: email,
         password: password,
         fullName: fullName,
         phone: phone,
+      )
+          .then(
+        (_) {
+          navigatorKey.currentContext!
+              .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+          return null;
+        },
       ),
     );
-    navigatorKey.currentContext!
-        .navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
   }
 }
 

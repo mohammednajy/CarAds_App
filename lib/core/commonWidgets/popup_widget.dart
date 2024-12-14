@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 extension PopupWidget on BuildContext {
-  void showSnackBar(String message) => ScaffoldMessenger.of(this).showSnackBar(
+  void showSnackBar({ String? message, Color? backgroundColor}) =>
+      ScaffoldMessenger.of(this).showSnackBar(
         SnackBar(
-          content: Text(message),
+          content: Text(message?? ''),
+          backgroundColor: backgroundColor,
         ),
       );
+
   showDialogPopUp({
     required String text,
   }) {

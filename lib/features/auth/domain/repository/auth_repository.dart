@@ -9,7 +9,7 @@ class AuthRepository {
 
   //------------------------ loginWithEmailAndPassword ---------------------------
 
-  Future<UserModel?> login(
+  Future<UserModel?> singIn(
       {required String email, required String password}) async {
     try {
       final response = await authDataSource.loginWithEmailAndPassword(
@@ -18,7 +18,7 @@ class AuthRepository {
       SharedPrefController.setLoggedIn();
       SharedPrefController.saveUserData(userModel);
       return userModel;
-    } on Exception catch (e) {
+    } catch (e) {
       throw e.toString();
     }
   }
@@ -40,7 +40,7 @@ class AuthRepository {
       SharedPrefController.setLoggedIn();
       SharedPrefController.saveUserData(userData);
       return userData;
-    } on Exception catch (e) {
+    } catch (e) {
       throw e.toString();
     }
   }
@@ -53,7 +53,7 @@ class AuthRepository {
       SharedPrefController.setLoggedIn();
       SharedPrefController.saveUserData(user);
       return user;
-    } on Exception catch (e) {
+    } catch (e) {
       throw e.toString();
     }
   }
@@ -66,7 +66,18 @@ class AuthRepository {
       SharedPrefController.saveUserData(user);
       SharedPrefController.setLoggedIn();
       return user;
-    } on Exception catch (e) {
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //------------------------ loginWithEmailAndPassword ---------------------------
+
+  Future<void> singOut() async {
+    try {
+      await authDataSource.signOut();
+      SharedPrefController.removeUser();
+    } catch (e) {
       throw e.toString();
     }
   }

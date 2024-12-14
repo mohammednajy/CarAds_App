@@ -23,7 +23,6 @@ class AuthDataSource {
         email: email,
         password: password,
       );
-
       final userDoc =
           remoteDataSource.userCollection.doc(credential.user!.uid).get();
       return userDoc;
@@ -146,6 +145,16 @@ class AuthDataSource {
         );
         return user;
       }
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //------------------------ signOut ---------------------------
+
+  Future<void> signOut() async {
+    try {
+      await remoteDataSource.auth.signOut();
     } catch (e) {
       throw e.toString();
     }
