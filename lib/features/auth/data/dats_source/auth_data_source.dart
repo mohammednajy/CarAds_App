@@ -5,16 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-// TODO Handel The Error state in auth future.
-
 class AuthDataSource {
   RemoteDataSource remoteDataSource;
 
   AuthDataSource({required this.remoteDataSource});
 
-  //------------------------ loginWithEmailAndPassword ---------------------------
+  //------------------------ loginWithEmailAndPassword -------------------------
 
-  Future<DocumentSnapshot<Map<String, dynamic>>> loginWithEmailAndPassword({
+  Future<DocumentSnapshot<Map<String, dynamic>>> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
@@ -27,7 +25,7 @@ class AuthDataSource {
           remoteDataSource.userCollection.doc(credential.user!.uid).get();
       return userDoc;
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 
@@ -56,11 +54,12 @@ class AuthDataSource {
       await remoteDataSource.userCollection.doc(uid).set(user.toJson());
       return user;
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 
   //------------------------ signUpWithGoogle--------------------------
+
   Future<UserModel> signUpWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -96,7 +95,7 @@ class AuthDataSource {
         return user;
       }
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 
@@ -104,11 +103,10 @@ class AuthDataSource {
 
   Future<bool> checkIfDocExists(String docId) async {
     try {
-      // Get reference to Firestore collection
       var doc = await remoteDataSource.userCollection.doc(docId).get();
       return doc.exists;
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 
@@ -117,7 +115,6 @@ class AuthDataSource {
   Future<UserModel> signInWithFacebook() async {
     try {
       final LoginResult result = await FacebookAuth.instance.login();
-      // if (result.status == LoginStatus.success) {}
       final OAuthCredential facebookAuthCredential =
           FacebookAuthProvider.credential(result.accessToken!.token);
       final UserCredential userCredential = await remoteDataSource.auth
@@ -146,17 +143,28 @@ class AuthDataSource {
         return user;
       }
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 
-  //------------------------ signOut ---------------------------
+  //------------------------ loginWithEmailAndPassword -------------------------
+
+  Future<String> forgetPassword({required String email}) async {
+    try {
+      await remoteDataSource.auth.sendPasswordResetEmail(email: email);
+      return '';
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  //----------------------------- signOut ----------------------------------
 
   Future<void> signOut() async {
     try {
       await remoteDataSource.auth.signOut();
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
   }
 }
