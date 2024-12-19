@@ -1,6 +1,5 @@
 import 'package:car_ads_app/core/services/remote/remote_data_source.dart';
 import 'package:car_ads_app/features/auth/data/dats_source/auth_data_source.dart';
-import 'package:car_ads_app/features/auth/data/models/user_model.dart';
 import 'package:car_ads_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,7 +14,7 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 
 class ResetPasswordProvider extends AutoDisposeAsyncNotifier<String?> {
   @override
-  build() => null;
+  String? build() => null;
 
   //------------------------------ ReSet Password ------------------------------
 
@@ -28,7 +27,7 @@ class ResetPasswordProvider extends AutoDisposeAsyncNotifier<String?> {
 }
 
 final reSetPasswordProvider =
-    AsyncNotifierProvider.autoDispose<ResetPasswordProvider, UserModel?>(
+    AsyncNotifierProvider.autoDispose<ResetPasswordProvider, String?>(
         () => ResetPasswordProvider());
 
 final isShowProvider = StateProvider.autoDispose<bool>((ref) => true);

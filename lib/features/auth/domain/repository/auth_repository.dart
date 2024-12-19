@@ -74,12 +74,11 @@ class AuthRepository {
 
   //------------------------ signInWithFacebook ---------------------------
 
-  Future<String> forgetPassword({
+  Future<String?> forgetPassword({
     required String email,
   }) async {
     try {
-      await authDataSource.forgetPassword(email: email);
-      return '';
+      return await authDataSource.forgetPassword(email: email);
     } on FirebaseAuthException catch (e) {
       throw e.message ?? '';
     }

@@ -152,7 +152,7 @@ class AuthDataSource {
   Future<String> forgetPassword({required String email}) async {
     try {
       await remoteDataSource.auth.sendPasswordResetEmail(email: email);
-      return '';
+      return ' ';
     } catch (e) {
       rethrow;
     }
