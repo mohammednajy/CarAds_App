@@ -11,4 +11,10 @@ class RoutesName {
   static const String createNewPasswordScreen = 'createNewPasswordScreen';
   static const String forgetPasswordScreen = 'forgetPasswordScreen';
   static const String oTPScreen = 'oTPScreen';
+  static const String profileScreen = 'profileScreen';
+  static const String paymentScreen = 'paymentScreen';
+  static const String changeLanguageScreen = 'changeLanguageScreen';
+  static const String fAQScreen = 'fAQScreen';
+  static const String termsAndConditionsScreen = 'termsAndConditionsScreen';
+  static const String privacyPolicyScreen = 'privacyPolicyScreen';
 }

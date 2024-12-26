@@ -23,12 +23,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool visible;
   final List<Widget>? actionIcon;
   final TextStyle? textStyle;
-  
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: visible == true ? 42 : 0,
-      leading: visible == true
+      leadingWidth: visible ? 42 : 0,
+      leading: visible
           ? GestureDetector(
               onTap: () => context.goBack(),
               child: const MainCard(

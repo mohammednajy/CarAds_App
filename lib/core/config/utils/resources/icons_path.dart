@@ -23,4 +23,9 @@ class IconsPath {
   static const String mazdaIcon = '${iconsPath}mazda_icon.svg';
   static const String toyotaIcon = '${iconsPath}toyota_icon.svg';
   static const String showRoomIcon = '${iconsPath}show_room_icon.svg';
+  static const String pensel = '${iconsPath}pensel.svg';
+  static const String nextIcon = '${iconsPath}next.svg';
+  static const String delete = '${iconsPath}delete.svg';
+  static const String logout = '${iconsPath}logout.svg';
+  static const String arrowDown = '${iconsPath}arrow_down.svg';
 }

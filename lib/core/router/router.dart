@@ -9,6 +9,12 @@ import 'package:car_ads_app/features/auth/presentation/screens/forget_password_s
 import 'package:car_ads_app/features/auth/presentation/screens/signUp_screen.dart';
 import 'package:car_ads_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:car_ads_app/features/onboarding/presentation/screens/splash_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/change_language_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/faq_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/payment_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/privacy_policy_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/profile_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/terms_conditions_screen.dart';
 
 import 'routes_name.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +60,30 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       case RoutesName.oTPScreen:
       return MaterialPageRoute(
         builder: (context) => const OTPScreen(),
+      );
+      case RoutesName.profileScreen:
+      return MaterialPageRoute(
+        builder: (context) => const ProfileScreen(),
+      );
+      case RoutesName.paymentScreen:
+      return MaterialPageRoute(
+        builder: (context) => const PaymentScreen(),
+      );
+      case RoutesName.changeLanguageScreen:
+      return MaterialPageRoute(
+        builder: (context) => const ChangeLanguageScreen(),
+      );
+      case RoutesName.fAQScreen:
+      return MaterialPageRoute(
+        builder: (context) => const FAQScreen(),
+      );
+  case RoutesName.termsAndConditionsScreen:
+      return MaterialPageRoute(
+        builder: (context) =>  TermsAndConditionsScreen(),
+      );
+    case RoutesName.privacyPolicyScreen:
+      return MaterialPageRoute(
+        builder: (context) =>  PrivacyPolicyScreen(),
       );
 
     default:
