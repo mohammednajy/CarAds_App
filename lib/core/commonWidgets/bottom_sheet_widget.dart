@@ -37,7 +37,7 @@ class BottomSheetWidget extends StatelessWidget {
             width: 49,
             height: 5,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(AppSize.borderRadius),
                 color: ColorManager.dragHandColor),
           ),
           Row(
@@ -49,7 +49,7 @@ class BottomSheetWidget extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  context.canGoBack();
+                  context.goBack();
                 },
                 icon: const Icon(
                   Icons.close,
@@ -60,7 +60,6 @@ class BottomSheetWidget extends StatelessWidget {
           ),
           24.addVerticalSpace,
           body,
-          // Spacer(),
           32.addVerticalSpace,
           CustomButtonWidget(
             title: primaryButtonText,
@@ -70,7 +69,7 @@ class BottomSheetWidget extends StatelessWidget {
                       const WidgetStatePropertyAll(ColorManager.warningColor),
                 ),
           ),
-          16.addVerticalSpace,
+          4.addVerticalSpace,
           TextButton(
             onPressed: onPressedTextButton,
             child: Text(secondaryButtonText),
