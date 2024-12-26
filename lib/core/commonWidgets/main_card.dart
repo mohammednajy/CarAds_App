@@ -16,6 +16,7 @@ class MainCard extends StatelessWidget {
   final double horizontal;
   final double vertical;
   final double border;
+  final double elevation;
 
   const MainCard({
     super.key,
@@ -31,6 +32,7 @@ class MainCard extends StatelessWidget {
     this.horizontal = 0,
     this.vertical = 0,
     this.border = AppSize.borderRadius,
+    this.elevation = 0,
   });
 
   @override
@@ -43,7 +45,7 @@ class MainCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(border)),
         shadowColor: shadowColor,
-        elevation: 0,
+        elevation: elevation,
         child: Padding(
           padding:
           EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
