@@ -19,6 +19,12 @@ class AddScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // SearchAnchor(builder: (context,s){return Text('Ahed');}, suggestionsBuilder: (context,s){return [
+              //   Text('data'),
+              //   Text('data2'),
+              //   Text('data3'),
+              // ];}),
+              // SearchAnchor.bar(suggestionsBuilder: (context,s){return [];}),
               Text(
                 'Welcome in Add page${SharedPrefController.getUserData().phone}',
                 style: context.titleMedium,

@@ -133,6 +133,7 @@ class SignInScreen extends HookConsumerWidget {
                       ),
                     ),
                     32.addVerticalSpace,
+
                     const SocialMediaWidget(),
                     16.addVerticalSpace,
                     HaveAccountSection(
