@@ -21,5 +21,7 @@ class ImagePath {
   static const String google = '${imagePath}google.svg';
   static const String newPasswordImage = '${imagePath}new_password_image.svg';
   static const String otpImage = '${imagePath}otp_image.svg';
+  static const String paypal = '${imagePath}paypal.svg';
+  static const String logoutFrame = '${imagePath}logoutFrame.svg';
 
 }
