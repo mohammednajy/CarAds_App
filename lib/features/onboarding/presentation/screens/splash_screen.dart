@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           ? SharedPrefController.getLoggedIn()
               ? RoutesName.mainAppScreen
               : RoutesName.signInScreen
-          : RoutesName.onboarding);
+          : RoutesName.onboarding,arguments: 0);
     });
     return Scaffold(
       backgroundColor: ColorManager.borderColor,

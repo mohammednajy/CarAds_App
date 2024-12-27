@@ -1,4 +1,3 @@
-
 import 'package:car_ads_app/features/bnb/presentation/screens/main_app_screen.dart';
 import 'package:car_ads_app/features/home/presentation/screens/all_cars_screen.dart';
 import 'package:car_ads_app/features/auth/presentation/screens/check_email_screen.dart';
@@ -10,10 +9,12 @@ import 'package:car_ads_app/features/auth/presentation/screens/signUp_screen.dar
 import 'package:car_ads_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:car_ads_app/features/onboarding/presentation/screens/splash_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/change_language_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/done_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/faq_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/payment_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/privacy_policy_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/profile_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/reset_password_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/terms_conditions_screen.dart';
 
 import 'routes_name.dart';
@@ -30,8 +31,11 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
           builder: (context) => const OnBoardingScreen(),
           settings: const RouteSettings(name: RoutesName.onboarding));
     case RoutesName.mainAppScreen:
+      var numPage = settings.arguments as int;
       return MaterialPageRoute(
-          builder: (context) => const MainAppScreen(),
+          builder: (context) => MainAppScreen(
+                page: numPage,
+              ),
           settings: const RouteSettings(name: RoutesName.mainAppScreen));
     case RoutesName.allCarsScreen:
       return MaterialPageRoute(
@@ -39,11 +43,11 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
           settings: const RouteSettings(name: RoutesName.allCarsScreen));
     case RoutesName.signInScreen:
       return MaterialPageRoute(
-        builder: (context) =>  SignInScreen(),
+        builder: (context) => SignInScreen(),
       );
     case RoutesName.signUpScreen:
       return MaterialPageRoute(
-        builder: (context) =>  SignUpScreen(),
+        builder: (context) => SignUpScreen(),
       );
     case RoutesName.checkEmailScreen:
       return MaterialPageRoute(
@@ -57,33 +61,41 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const CreateNewPasswordScreen(),
       );
-      case RoutesName.oTPScreen:
+    case RoutesName.oTPScreen:
       return MaterialPageRoute(
         builder: (context) => const OTPScreen(),
       );
-      case RoutesName.profileScreen:
+    case RoutesName.profileScreen:
       return MaterialPageRoute(
         builder: (context) => const ProfileScreen(),
       );
-      case RoutesName.paymentScreen:
+    case RoutesName.paymentScreen:
       return MaterialPageRoute(
         builder: (context) => const PaymentScreen(),
       );
-      case RoutesName.changeLanguageScreen:
+    case RoutesName.changeLanguageScreen:
       return MaterialPageRoute(
         builder: (context) => const ChangeLanguageScreen(),
       );
-      case RoutesName.fAQScreen:
+    case RoutesName.fAQScreen:
       return MaterialPageRoute(
         builder: (context) => const FAQScreen(),
       );
-  case RoutesName.termsAndConditionsScreen:
+    case RoutesName.termsAndConditionsScreen:
       return MaterialPageRoute(
-        builder: (context) =>  TermsAndConditionsScreen(),
+        builder: (context) => TermsAndConditionsScreen(),
       );
     case RoutesName.privacyPolicyScreen:
       return MaterialPageRoute(
-        builder: (context) =>  PrivacyPolicyScreen(),
+        builder: (context) => PrivacyPolicyScreen(),
+      );
+    case RoutesName.resetPasswordScreen:
+      return MaterialPageRoute(
+        builder: (context) => ResetPasswordScreen(),
+      );
+    case RoutesName.doneScreen:
+      return MaterialPageRoute(
+        builder: (context) => const DoneScreen(),
       );
 
     default:

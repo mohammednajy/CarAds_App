@@ -42,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : const SizedBox(),
       title: Text(
         title.tr(),
-        style: textStyle ?? context.headlineMedium.copyWith(fontSize: 22),
+        style: textStyle ?? context.headlineMedium,
       ),
       actions: actionIcon,
     );

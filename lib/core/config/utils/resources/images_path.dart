@@ -23,5 +23,6 @@ class ImagePath {
   static const String otpImage = '${imagePath}otp_image.svg';
   static const String paypal = '${imagePath}paypal.svg';
   static const String logoutFrame = '${imagePath}logoutFrame.svg';
+  static const String doneFrame = '${imagePath}done_frame.svg';
 
 }

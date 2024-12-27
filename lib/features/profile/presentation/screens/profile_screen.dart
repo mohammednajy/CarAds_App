@@ -23,10 +23,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var userData = SharedPrefController.getUserData();
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
           title: 'Your Profile',
-          visible: false,
-          textStyle: context.headlineMedium),
+          visible: false,),
       body: RefreshIndicator(
         onRefresh: () async {},
         child: ListView(
@@ -77,7 +76,9 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const CardInProfileWidget(title: 'Change Your Email '),
                   const CardInProfileWidget(title: 'Change Your Phone Number '),
-                  const CardInProfileWidget(title: 'Change Your Password '),
+                   CardInProfileWidget(title: 'Change Your Password ',onTap: (){
+                    context.navigateTo(RoutesName.resetPasswordScreen);
+                  },),
                   CardInProfileWidget(
                     title: 'Change Language ',
                     onTap: () {

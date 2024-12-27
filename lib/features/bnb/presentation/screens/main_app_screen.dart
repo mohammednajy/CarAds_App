@@ -6,11 +6,16 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainAppScreen extends HookWidget {
-  const MainAppScreen({super.key});
+  const MainAppScreen({
+    super.key,
+    required this.page,
+  });
+
+  final int page;
 
   @override
   Widget build(BuildContext context) {
-    final index = useState(0);
+    final index = useState(page);
     final screenWidth = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
