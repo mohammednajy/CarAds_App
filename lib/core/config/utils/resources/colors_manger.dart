@@ -21,4 +21,5 @@ class ColorManager {
   static const Color purpleSecondary = Color(0xFFF3F5FE);
   static const Color purplePrimary = Color(0xFF636C9E);
   static const Color dividerColor = Color(0xFFE9E9E9);
+  static const Color info90 = Color(0xFF366FA4);
 }

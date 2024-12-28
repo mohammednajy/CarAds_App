@@ -19,4 +19,5 @@ class RoutesName {
   static const String privacyPolicyScreen = 'privacyPolicyScreen';
   static const String resetPasswordScreen = 'resetPasswordScreen';
   static const String doneScreen = 'doneScreen';
+  static const String updateProfileScreen = 'updateProfileScreen';
 }

@@ -16,6 +16,7 @@ import 'package:car_ads_app/features/profile/presentation/screens/privacy_policy
 import 'package:car_ads_app/features/profile/presentation/screens/profile_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/reset_password_screen.dart';
 import 'package:car_ads_app/features/profile/presentation/screens/terms_conditions_screen.dart';
+import 'package:car_ads_app/features/profile/presentation/screens/update_profile_screen.dart';
 
 import 'routes_name.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +97,10 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     case RoutesName.doneScreen:
       return MaterialPageRoute(
         builder: (context) => const DoneScreen(),
+      );
+      case RoutesName.updateProfileScreen:
+      return MaterialPageRoute(
+        builder: (context) => const UpdateProfileScreen(),
       );
 
     default:
