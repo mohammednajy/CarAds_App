@@ -24,8 +24,9 @@ class ProfileScreen extends StatelessWidget {
     var userData = SharedPrefController.getUserData();
     return Scaffold(
       appBar: const CustomAppBar(
-          title: 'Your Profile',
-          visible: false,),
+        title: 'Your Profile',
+        visible: false,
+      ),
       body: RefreshIndicator(
         onRefresh: () async {},
         child: ListView(
@@ -33,6 +34,9 @@ class ProfileScreen extends StatelessWidget {
               horizontal: AppPadding.paddingHorizontal),
           children: [
             ListTile(
+              onTap: () {
+                context.navigateTo(RoutesName.updateProfileScreen);
+              },
               tileColor: ColorManager.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppSize.borderRadius)),
@@ -76,9 +80,12 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const CardInProfileWidget(title: 'Change Your Email '),
                   const CardInProfileWidget(title: 'Change Your Phone Number '),
-                   CardInProfileWidget(title: 'Change Your Password ',onTap: (){
-                    context.navigateTo(RoutesName.resetPasswordScreen);
-                  },),
+                  CardInProfileWidget(
+                    title: 'Change Your Password ',
+                    onTap: () {
+                      context.navigateTo(RoutesName.resetPasswordScreen);
+                    },
+                  ),
                   CardInProfileWidget(
                     title: 'Change Language ',
                     onTap: () {
@@ -91,9 +98,12 @@ class ProfileScreen extends StatelessWidget {
                       context.navigateTo(RoutesName.fAQScreen);
                     },
                   ),
-                   CardInProfileWidget(title: 'Privacy Policy',onTap: (){
-                    context.navigateTo(RoutesName.privacyPolicyScreen);
-                  },),
+                  CardInProfileWidget(
+                    title: 'Privacy Policy',
+                    onTap: () {
+                      context.navigateTo(RoutesName.privacyPolicyScreen);
+                    },
+                  ),
                   CardInProfileWidget(
                     title: 'Terms & Conditions',
                     onTap: () {

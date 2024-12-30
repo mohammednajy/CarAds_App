@@ -3,22 +3,19 @@ import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
 import 'package:car_ads_app/core/config/utils/resources/colors_manger.dart';
 import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
+import 'package:car_ads_app/features/profile/domain/provider/profile_provider.dart';
 import 'package:car_ads_app/features/profile/presentation/widgets/custom_floating_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ChangeLanguageScreen extends StatefulWidget {
+class ChangeLanguageScreen extends ConsumerWidget {
   const ChangeLanguageScreen({super.key});
 
   @override
-  State<ChangeLanguageScreen> createState() => _ChangeLanguageScreenState();
-}
-
-class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
-  String _selectedLanguage = 'en';
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    final selectedLang = ref.watch(selectedLanguageProvider);
+    final langNotifier = ref.read(selectedLanguageProvider.notifier);
     return Scaffold(
       appBar: const CustomAppBar(title: 'Change Language '),
       body: Padding(
@@ -35,22 +32,18 @@ class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
             RadioListTile<String>(
               title: const Text('English'),
               value: 'en',
-              groupValue: _selectedLanguage,
+              groupValue: selectedLang,
               onChanged: (value) {
-                setState(() {
-                  _selectedLanguage = value!;
-                });
+                langNotifier.state = value!;
               },
             ),
             const Divider(color: ColorManager.dividerColor),
             RadioListTile<String>(
               title: const Text('Arabic'),
               value: 'ar',
-              groupValue: _selectedLanguage,
+              groupValue: selectedLang,
               onChanged: (value) {
-                setState(() {
-                  _selectedLanguage = value!;
-                });
+                langNotifier.state = value!;
               },
             ),
           ],
@@ -60,9 +53,7 @@ class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
       floatingActionButton: CustomFloatingButton(
         buttonText: 'Save Changes',
         onPressed: () {
-          setState(() {
-            context.setLocale(Locale(_selectedLanguage));
-          });
+            context.setLocale(Locale(selectedLang));
         },
       ),
     );
