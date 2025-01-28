@@ -1,4 +1,3 @@
-
 import 'package:car_ads_app/core/services/localStorage/shared_pref_setup.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'carAdd.dart';
@@ -13,7 +12,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
 
   // Shared Preferences Setup
- await SharedPrefController.init();
+  await SharedPrefController.init();
 // WidgetsBinding.instance.addPostFrameCallback(callback)
   //Firebase Configuration
   await Firebase.initializeApp(

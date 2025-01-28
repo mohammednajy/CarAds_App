@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -31,7 +32,18 @@ class SignUpScreen extends HookConsumerWidget {
     final passwordController = useTextEditingController();
     final nameController = useTextEditingController();
     final phoneController = useTextEditingController();
+
     final bool showPassState = ref.watch(isShowProvider);
+    ref.listen(signUpProvider, (p, n) {
+      n.whenOrNull(data: (data) {
+        context.navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+        navigatorKey.currentContext!.showSnackBar(
+            message: 'Login Success', backgroundColor: Colors.green);
+      }, error: (error, stack) {
+        context.showSnackBar(
+            message: error.toString(), backgroundColor: Colors.red);
+      });
+    });
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: Center(
@@ -84,8 +96,11 @@ class SignUpScreen extends HookConsumerWidget {
                     ),
                     16.addVerticalSpace,
                     CountryAndPhoneSection(
-                        phoneController: phoneController,
-                        phoneNumber: phoneNumber),
+                      phoneController: phoneController,
+                      onSaved: (phone) {
+                        phoneNumber = phone!.completeNumber;
+                      },
+                    ),
                     16.addVerticalSpace,
                     CustomTextField(
                       controller: passwordController,

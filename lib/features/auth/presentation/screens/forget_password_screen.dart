@@ -2,6 +2,7 @@ import 'package:car_ads_app/core/commonWidgets/custom_appbar.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -10,6 +11,7 @@ import 'package:car_ads_app/core/config/utils/resources/images_path.dart';
 import 'package:car_ads_app/core/config/utils/resources/sizes_in_app.dart';
 import 'package:car_ads_app/core/router/router_extention.dart';
 import 'package:car_ads_app/core/router/routes_name.dart';
+import 'package:car_ads_app/features/auth/domain/providers/reset_password_provider.dart';
 import 'package:car_ads_app/features/auth/domain/providers/signIn_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +26,19 @@ class ForgetPasswordScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final emailController = useTextEditingController();
-
+    ref.listen(reSetPasswordProvider, (p, n) {
+      n.when(
+          data: (data) {
+            context.navigateTo(RoutesName.checkEmailScreen);
+          },
+          error: (error, stack) {
+            context.showSnackBar(
+                message: error.toString(), backgroundColor: Colors.red);
+          },
+          loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ));
+    });
     return Scaffold(
       appBar: const CustomAppBar(
         title: '',
@@ -76,7 +90,7 @@ class ForgetPasswordScreen extends HookConsumerWidget {
                     onPressed: () {
                       if (forgetFormKey.currentState!.validate()) {
                         ref
-                            .read(loginProvider.notifier)
+                            .read(reSetPasswordProvider.notifier)
                             .reSetPassword(email: emailController.text.trim());
                       }
                     },

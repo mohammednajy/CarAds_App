@@ -7,8 +7,8 @@ import 'package:car_ads_app/core/services/localStorage/shared_pref_setup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreenTest extends StatelessWidget {
-  const HomeScreenTest({super.key});
+class AddScreen extends StatelessWidget {
+  const AddScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,14 @@ class HomeScreenTest extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Welcome in Home page',
+                'Welcome in Add page${SharedPrefController.getUserData().phone}',
                 style: context.titleMedium,
               ),
               16.addVerticalSpace,
               CustomButtonWidget(title: 'LogOut Now', onPressed: ()async{
                 await FirebaseAuth.instance.signOut();
-                SharedPrefController.clear();
+                // await FacebookAuth.instance.logOut();
+                SharedPrefController.removeUser();
                 context.navigateAndReplace(RoutesName.signInScreen);
               })
             ],

@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_button.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_svg.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
+import 'package:car_ads_app/core/commonWidgets/popup_widget.dart';
 import 'package:car_ads_app/core/config/localization/locale_keys.g.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -28,17 +29,30 @@ class SignInScreen extends HookConsumerWidget {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final bool showPassState = ref.watch(showPassProvider);
+
+    ref.listen(loginProvider, (p, n) {
+      n.whenOrNull(data: (data) {
+        context.navigateAndRemoveUntil(RoutesName.mainAppScreen, (_) => false);
+        navigatorKey.currentContext!.showSnackBar(
+            message: 'Login Success', backgroundColor: Colors.green);
+      }, error: (error, stack) {
+        context.showSnackBar(
+            message: error.toString(), backgroundColor: Colors.red);
+      });
+    });
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      body: GestureDetector(
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus &&
-              currentFocus.focusedChild != null) {
-            currentFocus.focusedChild!.unfocus();
-          }
-        },
-        child: Form(
+        // resizeToAvoidBottomInset: false,
+        body: GestureDetector(
+      // TODO Try this line and see what is Different
+      // onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          currentFocus.focusedChild!.unfocus();
+        }
+      },
+      child: Form(
           key: loginFormKey,
           child: Center(
             child: SingleChildScrollView(
@@ -111,7 +125,7 @@ class SignInScreen extends HookConsumerWidget {
                         title: LocaleKeys.signIn.tr(),
                         onPressed: () async {
                           if (loginFormKey.currentState!.validate()) {
-                            ref.read(loginProvider.notifier).login(
+                            ref.read(loginProvider.notifier).signIn(
                                 email: emailController.text,
                                 password: passwordController.text);
                           }
@@ -132,10 +146,8 @@ class SignInScreen extends HookConsumerWidget {
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
+          )),
+    ));
   }
 }
 

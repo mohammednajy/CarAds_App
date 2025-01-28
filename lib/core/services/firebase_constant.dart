@@ -7,4 +7,5 @@ class FirebaseConstant {
   static const image = 'image';
   static const fullName = 'fullName';
   static const phone = 'phone';
+  static const banars = 'banars';
 }

@@ -1,8 +1,6 @@
 
-import 'package:car_ads_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:car_ads_app/features/bnb/presentation/screens/main_app_screen.dart';
 import 'package:car_ads_app/features/home/presentation/screens/all_cars_screen.dart';
-import 'package:car_ads_app/features/auth/home_screen.dart';
 import 'package:car_ads_app/features/auth/presentation/screens/check_email_screen.dart';
 import 'package:car_ads_app/features/auth/presentation/screens/create_new_password.dart';
 import 'package:car_ads_app/features/auth/presentation/screens/otp_screen.dart';
@@ -25,10 +23,6 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) => const OnBoardingScreen(),
           settings: const RouteSettings(name: RoutesName.onboarding));
-    case RoutesName.login:
-      return MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
-          settings: const RouteSettings(name: RoutesName.login));
     case RoutesName.mainAppScreen:
       return MaterialPageRoute(
           builder: (context) => const MainAppScreen(),
@@ -37,9 +31,6 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) => const AllCarsScreen(),
           settings: const RouteSettings(name: RoutesName.allCarsScreen));
-
-        builder: (context) => const OnBoardingScreen(),
-      );
     case RoutesName.signInScreen:
       return MaterialPageRoute(
         builder: (context) =>  SignInScreen(),
@@ -63,10 +54,6 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       case RoutesName.oTPScreen:
       return MaterialPageRoute(
         builder: (context) => const OTPScreen(),
-      );
-      case RoutesName.homeScreenTest:
-      return MaterialPageRoute(
-        builder: (context) => const HomeScreenTest(),
       );
 
     default:

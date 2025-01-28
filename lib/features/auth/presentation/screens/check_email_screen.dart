@@ -82,7 +82,7 @@ class CheckEmailScreen extends StatelessWidget {
                     },
                   );
                 }
-                 context.navigateTo(RoutesName.signInScreen);
+                context.navigateTo(RoutesName.signInScreen);
               },
             ),
             16.addVerticalSpace,
