@@ -1,6 +1,7 @@
 import 'package:car_ads_app/core/commonWidgets/custom_appbar.dart';
 import 'package:car_ads_app/core/commonWidgets/custom_textFeild.dart';
 import 'package:car_ads_app/core/commonWidgets/main_card.dart';
+import 'package:car_ads_app/core/commonWidgets/main_container.dart';
 import 'package:car_ads_app/core/commonWidgets/netowrk_image_widget.dart';
 import 'package:car_ads_app/core/config/utils/extensions/app_sizes.dart';
 import 'package:car_ads_app/core/config/utils/extensions/text_style_extension.dart';
@@ -45,17 +46,15 @@ class UpdateProfileScreen extends HookConsumerWidget {
                 MainCard(
                     vertical: 16,
                     onTap: () {
-                      /*
                       _showPicker(
-                    context: context,
-                    onTapGallery: () {
-                      value.imgFromGallery();
-                    },
-                    onTapCamera: () {
-                      value.imgFromCamera();
-                    },
-                  );
-                       */
+                        context: context,
+                        onTapGallery: () {
+                          // ref.imgFromGallery();
+                        },
+                        onTapCamera: () {
+                          // ref.imgFromCamera();
+                        },
+                      );
                     },
                     child: Column(
                       spacing: 8,
@@ -105,8 +104,8 @@ class UpdateProfileScreen extends HookConsumerWidget {
       ),
     );
   }
-/*
-    void _showPicker({
+
+  void _showPicker({
     required BuildContext context,
     required void Function() onTapGallery,
     required void Function() onTapCamera,
@@ -118,15 +117,15 @@ class UpdateProfileScreen extends HookConsumerWidget {
           return SafeArea(
             child: MainContainer(
               color: ColorManager.scaffoldColor,
-              child: new Wrap(
+              child: Wrap(
                 children: <Widget>[
-                  new ListTile(
-                      leading: new Icon(Icons.photo_library),
-                      title: new Text("gallery".tr()),
+                  ListTile(
+                      leading: const Icon(Icons.photo_library),
+                      title: const Text("Gallery"),
                       onTap: onTapGallery),
-                  new ListTile(
-                      leading: new Icon(Icons.photo_camera),
-                      title: new Text("camera".tr()),
+                  ListTile(
+                      leading: const Icon(Icons.photo_camera),
+                      title: const Text("Camera"),
                       onTap: onTapCamera),
                 ],
               ),
@@ -134,5 +133,4 @@ class UpdateProfileScreen extends HookConsumerWidget {
           );
         });
   }
-   */
 }

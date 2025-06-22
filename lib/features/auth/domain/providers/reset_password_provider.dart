@@ -1,16 +1,5 @@
-import 'package:car_ads_app/core/services/remote/remote_data_source.dart';
-import 'package:car_ads_app/features/auth/data/dats_source/auth_data_source.dart';
-import 'package:car_ads_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:car_ads_app/features/auth/domain/providers/signIn_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-final authDataSourceProvider = Provider<AuthDataSource>((ref) {
-  return AuthDataSource(remoteDataSource: ref.read(remoteDataSourceProvider));
-});
-
-final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  final authDataSource = ref.watch(authDataSourceProvider);
-  return AuthRepository(authDataSource: authDataSource);
-});
 
 class ResetPasswordProvider extends AutoDisposeAsyncNotifier<String?> {
   @override

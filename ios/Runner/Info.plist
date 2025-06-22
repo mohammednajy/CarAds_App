@@ -3,6 +3,15 @@
 <plist version="1.0">
 <dict>
 
+    <!-- Image Picker Configuration -->
+
+     <key>NSCameraUsageDescription</key>
+     <string>Camera usage</string>
+     <key>NSMicrophoneUsageDescription</key>
+     <string>Microphone usage</string>
+     <key>NSPhotoLibraryUsageDescription</key>
+     <string>Photo Library usage</string>
+
     <!-- Facebook Configuration -->
     <key>CFBundleURLTypes</key>
     <array>
